@@ -1,0 +1,16 @@
+<div class="form_item_block">
+	<label for="octane-gocd-plugin-server-url">Server URL<span class="asterisk">*</span></label>
+	<p>Expected to look like: http://hostname:port/ui/?p=&lt;SharedSpaceID&gt;</p>
+	<input id="octane-gocd-plugin-server-url" ng-model="serverURL" type="text"/>
+	<span class="form_error" ng-show="GOINPUTNAME[serverURL].$error.server">{{GOINPUTNAME[serverURL].$error.server}}</span>
+</div>
+<div class="form_item_block">
+	<label for="octane-gocd-plugin-client-id">Client ID<span class="asterisk">*</span></label>
+	<input id="octane-gocd-plugin-client-id" ng-model="clientID" type="text"/>
+	<span class="form_error" ng-show="GOINPUTNAME[clientID].$error.server">{{GOINPUTNAME[clientID].$error.server}}</span>
+</div>
+<div class="form_item_block">
+	<label for="octane-gocd-plugin-client-secret">Client Secret<span class="asterisk">*</span></label>
+	<input id="octane-gocd-plugin-client-secret" ng-model="clientSecret" type="text"/>
+	<span class="form_error" ng-show="GOINPUTNAME[clientSecret].$error.server">{{GOINPUTNAME[clientSecret].$error.server}}</span>
+</div>
