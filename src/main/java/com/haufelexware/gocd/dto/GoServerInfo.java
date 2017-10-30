@@ -1,4 +1,4 @@
-package com.haufelexware.gocd.plugin.octane.dto;
+package com.haufelexware.gocd.dto;
 
 import com.google.gson.annotations.SerializedName;
 
