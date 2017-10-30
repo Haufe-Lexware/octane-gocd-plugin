@@ -111,6 +111,17 @@ public class OctaneGoCDPlugin implements GoPlugin {
 					.put("required", true)
 					.put("secure", true)
 					.build())
+				.put("goUsername", new MapBuilder<>(new HashMap<String,Object>())
+					.put("display-name", "Go API Username")
+					.put("display-order", "3")
+					.put("required", true)
+					.build())
+				.put("goPassword", new MapBuilder<>(new HashMap<String,Object>())
+					.put("display-name", "Go API Password")
+					.put("display-order", "4")
+					.put("required", true)
+					.put("secure", true)
+					.build())
 				.build()));
 		} else if ("go.plugin-settings.validate-configuration".equals(request.requestName())) { // server is asking for a validation of the given values.
 			final OctaneGoCDPluginSettingsWrapper wrapper = new Gson().fromJson(request.requestBody(), OctaneGoCDPluginSettingsWrapper.class);

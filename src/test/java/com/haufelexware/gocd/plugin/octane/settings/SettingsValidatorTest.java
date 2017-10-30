@@ -21,7 +21,9 @@ public class SettingsValidatorTest {
 		final List<ValidationIssue> issues = new SettingsValidator().validate(new OctaneGoCDPluginSettings()
 			.setServerURL("https://foobar.org/wildpath?token=s")
 			.setClientID("nobody")
-			.setClientSecret("key"));
+			.setClientSecret("key")
+			.setGoUsername("alice")
+			.setGoPassword("42"));
 		Assert.assertNotNull("list of issues should not be null", issues);
 		Assert.assertTrue("list of issues should be empty", issues.isEmpty());
 	}
@@ -65,6 +67,30 @@ public class SettingsValidatorTest {
 		Assert.assertNotNull("list of issues should not be null", issues);
 		Assert.assertFalse("list of issues should not be empty", issues.isEmpty());
 		Assert.assertTrue("list should contain validation issue for missing clientSecret", issues.contains(new ValidationIssue("clientSecret", "Client Secret can not be empty")));
+	}
+
+	@Test
+	public void testAgainstSettingsWithMissingGoUsername() {
+		final List<ValidationIssue> issues = new SettingsValidator().validate(new OctaneGoCDPluginSettings()
+			.setServerURL("https://forbar.org")
+			.setClientID("nobody")
+			.setClientSecret("key")
+			.setGoPassword("57"));
+		Assert.assertNotNull("list of issues should not be null", issues);
+		Assert.assertFalse("list of issues should not be empty", issues.isEmpty());
+		Assert.assertTrue("list should contain validation issue for missing clientSecret", issues.contains(new ValidationIssue("goUsername", "Go API Username can not be empty")));
+	}
+
+	@Test
+	public void testAgainstSettingsWithMissingGoPassword() {
+		final List<ValidationIssue> issues = new SettingsValidator().validate(new OctaneGoCDPluginSettings()
+			.setServerURL("https://forbar.org")
+			.setClientID("nobody")
+			.setClientSecret("key")
+			.setGoUsername("alice"));
+		Assert.assertNotNull("list of issues should not be null", issues);
+		Assert.assertFalse("list of issues should not be empty", issues.isEmpty());
+		Assert.assertTrue("list should contain validation issue for missing clientSecret", issues.contains(new ValidationIssue("goPassword", "Go API Password can not be empty")));
 	}
 
 	@Test

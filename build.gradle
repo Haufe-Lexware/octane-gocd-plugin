@@ -17,9 +17,13 @@ sourceCompatibility = 1.7
 dependencies {
 	compile 'cd.go.plugin:go-plugin-api:17.9.+'
 	compile('com.hpe.adm.octane.ciplugins:integrations-sdk:1.4.+') {
+		exclude group:'org.apache.httpcomponents'
 		exclude module:'integrations-dto' // all DTOs are already included in the SDK
 	}
 	compile 'com.google.code.gson:gson:2.8.+'
+	compileOnly 'org.apache.httpcomponents:httpclient:4.5.2' // this client is also already bundled in the SDK no need to bundle it separately.
+
+	runtime 'commons-logging:commons-logging:1.2' // necessary for the httpclient
 
 	testCompile 'junit:junit:4.12'
 }

@@ -10,11 +10,13 @@ import org.junit.Test;
 public class OctaneGoCDPluginSettingsWrapperTest {
 
 	@Test
-	public void testParsingJsonIntoWrapper() {
+	public void testParsingJsonIntoValidWrapper() {
 		final String json = "{ \"plugin-settings\": { " +
 			" \"serverURL\"   : { \"value\": \"https://foobar.org\" }," +
 			" \"clientID\"    : { \"value\": \"nobody\"             }," +
-			" \"clientSecret\": { \"value\": \"password\"           }" +
+			" \"clientSecret\": { \"value\": \"password\"           }," +
+			" \"goUsername\"  : { \"value\": \"charly\"             }," +
+			" \"goPassword\"  : { \"value\": \"54123\"              }" +
 			"}}";
 
 		final OctaneGoCDPluginSettingsWrapper wrapper = new Gson().fromJson(json, OctaneGoCDPluginSettingsWrapper.class);
@@ -24,5 +26,8 @@ public class OctaneGoCDPluginSettingsWrapperTest {
 		Assert.assertEquals("serverURL should equal", "https://foobar.org", settings.getServerURL());
 		Assert.assertEquals("clientID should equal", "nobody", settings.getClientID());
 		Assert.assertEquals("clientSecret should equal", "password", settings.getClientSecret());
+		Assert.assertEquals("goUsername should equal", "charly", settings.getGoUsername());
+		Assert.assertEquals("goPassword should equal", "54123", settings.getGoPassword());
+		Assert.assertTrue("wrapper should have valid settings", new SettingsValidator().validate(settings).isEmpty());
 	}
 }

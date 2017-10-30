@@ -37,6 +37,14 @@ public class SettingsValidator {
 			issues.add(new ValidationIssue("clientSecret", "Client Secret can not be empty"));
 		}
 
+		if (settings.getGoUsername() == null || settings.getGoUsername().isEmpty()) {
+			issues.add(new ValidationIssue("goUsername", "Go API Username can not be empty"));
+		}
+
+		if (settings.getGoPassword() == null || settings.getGoPassword().isEmpty()) {
+			issues.add(new ValidationIssue("goPassword", "Go API Password can not be empty"));
+		}
+
 		return issues;
 	}
 }

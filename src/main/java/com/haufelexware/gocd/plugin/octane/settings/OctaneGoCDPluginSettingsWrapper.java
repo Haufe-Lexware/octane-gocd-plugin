@@ -19,7 +19,9 @@ public class OctaneGoCDPluginSettingsWrapper {
 		return new OctaneGoCDPluginSettings()
 			.setServerURL((String)getValueFor("serverURL"))
 			.setClientID((String)getValueFor("clientID"))
-			.setClientSecret((String)getValueFor("clientSecret"));
+			.setClientSecret((String)getValueFor("clientSecret"))
+			.setGoUsername((String)getValueFor("goUsername"))
+			.setGoPassword((String)getValueFor("goPassword"));
 	}
 
 	protected Object getValueFor(final String property) {
