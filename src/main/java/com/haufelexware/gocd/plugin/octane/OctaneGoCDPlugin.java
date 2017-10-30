@@ -73,7 +73,9 @@ public class OctaneGoCDPlugin implements GoPlugin {
 				if (serverURL == null || serverURL.isEmpty()) { // auto discover the site URL if there is still none.
 					try {
 						serverURL = "http://" + InetAddress.getLocalHost().getHostName() + ":8153/go";
-					} catch (UnknownHostException e) { /* do nothing */ }
+					} catch (UnknownHostException e) {
+						throw new IllegalArgumentException("Could not determine the serverURL. Please configure it in Go's Server Configuration.");
+					}
 				}
 				goPluginServices.setGoServerURL(serverURL);
 				Log.info("Go Server URL: " + goPluginServices.getGoServerURL());
