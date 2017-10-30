@@ -45,12 +45,10 @@ public class OctaneGoCDPlugin implements GoPlugin {
 
 	private static final Logger Log = Logger.getLoggerFor(OctaneGoCDPlugin.class);
 
-	private GoApplicationAccessor goApplicationAccessor;
 	private GoPluginServices goPluginServices = new GoPluginServices();
 
 	@Override
 	public void initializeGoApplicationAccessor(GoApplicationAccessor goApplicationAccessor) {
-		this.goApplicationAccessor = goApplicationAccessor;
 		{ // retrieve the current plugin settings from the server.
 			DefaultGoApiRequest request = new DefaultGoApiRequest("go.processor.plugin-settings.get", "1.0", pluginIdentifier());
 			request.setRequestBody(new Gson().toJson(Collections.singletonMap("plugin-id", PluginID)));
