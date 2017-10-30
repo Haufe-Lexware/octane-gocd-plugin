@@ -15,7 +15,7 @@ compileTestJava.options.encoding = 'UTF-8'
 sourceCompatibility = 1.7
 
 dependencies {
-	compile 'cd.go.plugin:go-plugin-api:16.4.+'
+	compile 'cd.go.plugin:go-plugin-api:17.9.+'
 	compile('com.hpe.adm.octane.ciplugins:integrations-sdk:1.4.+') {
 		exclude module:'integrations-dto' // all DTOs are already included in the SDK
 	}
