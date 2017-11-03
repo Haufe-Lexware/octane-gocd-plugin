@@ -142,7 +142,8 @@ public class GoPluginServices extends CIPluginServicesBase {
 		for (GoPipelineGroup group : new GoGetPipelineGroups(getGoApiClient()).get()) {
 			for (GoPipeline pipeline : group.getPipelines()) {
 				pipelineNodes.add(DTOFactory.getInstance().newDTO(PipelineNode.class)
-					.setName(group.getName() + ":" + pipeline.getName()));
+					.setJobCiId(pipeline.getName())
+					.setName(pipeline.getName()));
 			}
 		}
 		return DTOFactory.getInstance().newDTO(CIJobsList.class)
@@ -151,13 +152,13 @@ public class GoPluginServices extends CIPluginServicesBase {
 
 	@Override
 	public PipelineNode getPipeline(final String rootCIJobId) {
-		if (rootCIJobId == null || !rootCIJobId.contains(":")) {
-			throw new IllegalArgumentException("given pipeline identifier is invalid '" + rootCIJobId + "'");
+		if (rootCIJobId == null || rootCIJobId.isEmpty()) {
+			throw new IllegalArgumentException("no pipeline identifier was given");
 		}
 		// search the config for this pipeline.
 		for (GoPipelineGroup group : new GoGetPipelineGroups(getGoApiClient()).get()) {
 			for (GoPipeline pipeline : group.getPipelines()) {
-				if (rootCIJobId.equals(group.getName() + ":" + pipeline.getName())) {
+				if (rootCIJobId.equals(pipeline.getName())) {
 					return DTOFactory.getInstance().newDTO(PipelineNode.class)
 						.setJobCiId(rootCIJobId)
 						.setName(pipeline.getName())
