@@ -1,11 +1,8 @@
 package com.haufelexware.octane;
 
 import com.haufelexware.gocd.dto.*;
-import com.haufelexware.gocd.service.GoApiClient;
-import com.haufelexware.gocd.service.GoGetPipelineConfig;
-import com.haufelexware.gocd.service.GoGetPipelineGroups;
+import com.haufelexware.gocd.service.*;
 import com.haufelexware.gocd.plugin.octane.settings.OctaneGoCDPluginSettings;
-import com.haufelexware.gocd.service.GoGetPipelineHistory;
 import com.haufelexware.util.checker.Checker;
 import com.haufelexware.util.checker.ListChecker;
 import com.haufelexware.util.converter.Converter;
@@ -196,11 +193,35 @@ public class GoPluginServices extends CIPluginServicesBase {
 
 	@Override
 	public SnapshotNode getSnapshotLatest(String ciJobId, boolean subTree) {
+		Log.debug("Retrieving latest snapshot for '" + ciJobId + "' including subTree=" + subTree);
 		final List<GoPipelineInstance> instances = new GoGetPipelineHistory(getGoApiClient()).get(ciJobId);
 		if (instances == null || instances.isEmpty()) {
 			return null;
 		}
-		final GoPipelineInstance instance = instances.get(0);
+		return convertToSnapshotNode(instances.get(0));
+	}
+
+	@Override
+	public SnapshotNode getSnapshotByNumber(String ciJobId, String buildId, boolean subTree) {
+		Log.debug("Retrieving snapshot with id=" + buildId + " for '" + ciJobId + "' including subTree=" + subTree);
+		int counter;
+		try {
+			counter = Integer.valueOf(buildId);
+		} catch (NumberFormatException e) {
+			throw new IllegalArgumentException("given buildId '" + buildId + "' could not be parsed as Integer", e);
+		}
+		return convertToSnapshotNode(new GoGetPipelineInstance(getGoApiClient()).get(ciJobId, counter));
+	}
+
+	/**
+	 * Helper method to convert a single {@link GoPipelineInstance} into {@link SnapshotNode}.
+	 * @param instance to convert. Can be null.
+	 * @return the SnapshotNode or null, if null was given.
+	 */
+	protected SnapshotNode convertToSnapshotNode(final GoPipelineInstance instance) {
+		if (instance == null) {
+			return null;
+		}
 		final boolean allStagesSuccessful = ListChecker.check(instance.getStages(), new Checker<GoStageInstance>() {
 			@Override
 			public boolean check(GoStageInstance goStageInstance) {
@@ -208,8 +229,8 @@ public class GoPluginServices extends CIPluginServicesBase {
 			}
 		});
 		return DTOFactory.getInstance().newDTO(SnapshotNode.class)
-			.setJobCiId(ciJobId)
-			.setName(ciJobId)
+			.setJobCiId(instance.getName())
+			.setName(instance.getName())
 			.setBuildCiId(instance.getId())
 			.setNumber(String.valueOf(instance.getCounter()))
 			.setResult(allStagesSuccessful ? CIBuildResult.SUCCESS : CIBuildResult.FAILURE)
