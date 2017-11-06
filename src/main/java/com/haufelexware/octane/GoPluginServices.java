@@ -215,6 +215,7 @@ public class GoPluginServices extends CIPluginServicesBase {
 			.setResult(allStagesSuccessful ? CIBuildResult.SUCCESS : CIBuildResult.FAILURE)
 			.setStatus(CIBuildStatus.FINISHED)
 			.setStartTime(instance.getFirstScheduledDate())
+			.setDuration(instance.getDuration())
 			.setPhasesInternal(Collections.singletonList(DTOFactory.getInstance().newDTO(SnapshotPhase.class)
 				.setName("stages")
 				.setBlocking(true)
@@ -229,6 +230,7 @@ public class GoPluginServices extends CIPluginServicesBase {
 							.setResult("Passed".equals(stageInstance.getResult()) ? CIBuildResult.SUCCESS : CIBuildResult.FAILURE)
 							.setStatus(CIBuildStatus.FINISHED)
 							.setStartTime(stageInstance.getFirstScheduledDate())
+							.setDuration(stageInstance.getDuration())
 							.setPhasesInternal(Collections.singletonList(DTOFactory.getInstance().newDTO(SnapshotPhase.class)
 								.setName("jobs")
 								.setBlocking(true)
@@ -241,7 +243,8 @@ public class GoPluginServices extends CIPluginServicesBase {
 											.setBuildCiId(String.valueOf(jobInstance.getId()))
 											.setResult("Passed".equals(jobInstance.getResult()) ? CIBuildResult.SUCCESS : CIBuildResult.FAILURE)
 											.setStatus(CIBuildStatus.FINISHED)
-											.setStartTime(jobInstance.getScheduledDate());
+											.setStartTime(jobInstance.getScheduledDate())
+											.setDuration(jobInstance.getDuration());
 									}
 								}))));
 					}

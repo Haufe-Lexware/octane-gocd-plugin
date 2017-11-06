@@ -101,4 +101,22 @@ public class GoPipelineInstance {
 			return null;
 		}
 	}
+
+	public Long getLastJobTransitionDate() {
+		if (stages != null && !stages.isEmpty()) {
+			return stages.get(stages.size() - 1).getLastJobTransitionDate();
+		} else {
+			return null;
+		}
+	}
+
+	public Long getDuration() {
+		Long scheduledDate = getFirstScheduledDate();
+		Long lastTransitionDate = getLastJobTransitionDate();
+		if (scheduledDate != null && lastTransitionDate != null) {
+			return lastTransitionDate - scheduledDate;
+		} else {
+			return null;
+		}
+	}
 }

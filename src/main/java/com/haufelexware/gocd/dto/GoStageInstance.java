@@ -92,4 +92,22 @@ public class GoStageInstance {
 			return null;
 		}
 	}
+
+	public Long getLastJobTransitionDate() {
+		if (jobs != null && !jobs.isEmpty()) {
+			return jobs.get(jobs.size() - 1).getLastJobTransitionDate();
+		} else {
+			return null;
+		}
+	}
+
+	public Long getDuration() {
+		Long scheduledDate = getFirstScheduledDate();
+		Long lastTransitionDate = getLastJobTransitionDate();
+		if (scheduledDate != null && lastTransitionDate != null) {
+			return lastTransitionDate - scheduledDate;
+		} else {
+			return null;
+		}
+	}
 }

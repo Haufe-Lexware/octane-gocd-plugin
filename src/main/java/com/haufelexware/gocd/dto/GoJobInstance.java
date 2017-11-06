@@ -75,4 +75,21 @@ public class GoJobInstance {
 	public void setJobStateTransitions(List<GoJobStateTransition> jobStateTransitions) {
 		this.jobStateTransitions = jobStateTransitions;
 	}
+
+	public Long getLastJobTransitionDate() {
+		if (jobStateTransitions != null && !jobStateTransitions.isEmpty()) {
+			return jobStateTransitions.get(jobStateTransitions.size() - 1).getStateChangeTime();
+		} else {
+			return null;
+		}
+	}
+
+	public Long getDuration() {
+		Long lastTransitionDate = getLastJobTransitionDate();
+		if (lastTransitionDate != null) {
+			return lastTransitionDate - scheduledDate;
+		} else {
+			return null;
+		}
+	}
 }
