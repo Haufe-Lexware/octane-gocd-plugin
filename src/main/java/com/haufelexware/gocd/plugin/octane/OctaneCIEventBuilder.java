@@ -137,7 +137,7 @@ public class OctaneCIEventBuilder {
 		try { // try to parse the time with an RFC822 timezone
 			return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").parse(time);
 		} catch (ParseException e) {
-			Log.warn("Could not parse given time with RFC822 timezone '" + time + "'", e);
+			Log.warn("Could not parse given time with RFC822 timezone '" + time + "'");
 		}
 		try { // try to parse the time with the pattern the StageConverter was probably using
 			return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(time);
