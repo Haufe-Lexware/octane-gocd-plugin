@@ -1,7 +1,6 @@
 package com.haufelexware.gocd.service;
 
 import com.google.gson.Gson;
-import com.haufelexware.gocd.dto.GoPipelineHistory;
 import com.haufelexware.gocd.dto.GoPipelineInstance;
 import com.haufelexware.gocd.plugin.octane.util.Streams;
 import com.thoughtworks.go.plugin.api.logging.Logger;
@@ -11,8 +10,6 @@ import org.apache.http.client.methods.HttpGet;
 
 import java.io.IOException;
 import java.net.URLEncoder;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * This class encapsulate the API call to get a specific pipeline instance of a Go pipeline.

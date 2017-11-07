@@ -1,6 +1,7 @@
 package com.haufelexware.gocd.plugin.octane;
 
 import com.google.gson.Gson;
+import com.haufelexware.gocd.dto.GenericJsonObject;
 import com.haufelexware.gocd.dto.GoServerInfo;
 import com.haufelexware.gocd.plugin.octane.settings.OctaneGoCDPluginSettings;
 import com.haufelexware.gocd.plugin.octane.settings.OctaneGoCDPluginSettingsWrapper;
@@ -87,7 +88,11 @@ public class OctaneGoCDPlugin implements GoPlugin {
 
 	@Override
 	public GoPluginApiResponse handle(GoPluginApiRequest request) throws UnhandledRequestTypeException {
-		if ("go.plugin-settings.get-view".equals(request.requestName())) { // server is requesting the HTML template for this plugin's configuration.
+		if ("stage-status".equals(request.requestName())) { // server is informing about a status change.
+			GenericJsonObject statusInfo = new Gson().fromJson(request.requestBody(), GenericJsonObject.class);
+			new OctaneCIEventBuilder(goPluginServices.getGoApiClient()).sendCIEvent(statusInfo);
+			return new DefaultGoPluginApiResponse(200, new Gson().toJson(Collections.singletonMap("status", "success")));
+		} else if ("go.plugin-settings.get-view".equals(request.requestName())) { // server is requesting the HTML template for this plugin's configuration.
 			try {
 				return new DefaultGoPluginApiResponse(200, new Gson().toJson(Collections.singletonMap("template", Streams.readAsString(getClass().getClassLoader().getResourceAsStream("settings.template.html")))));
 			} catch (IOException e) {
@@ -145,7 +150,7 @@ public class OctaneGoCDPlugin implements GoPlugin {
 			}
 			return new DefaultGoPluginApiResponse(200, new Gson().toJson(issues));
 		} else if ("notifications-interested-in".equals(request.requestName())) {
-			return new DefaultGoPluginApiResponse(200, new Gson().toJson(Collections.singletonMap("notifications", Collections.emptyList())));
+			return new DefaultGoPluginApiResponse(200, new Gson().toJson(Collections.singletonMap("notifications", Collections.singletonList("stage-status"))));
 		}
 		throw new UnhandledRequestTypeException(request.requestName());
 	}
