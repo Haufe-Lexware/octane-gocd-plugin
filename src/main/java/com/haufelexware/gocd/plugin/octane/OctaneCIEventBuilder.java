@@ -79,12 +79,14 @@ public class OctaneCIEventBuilder {
 	}
 
 	private void sendStartEvent(GenericJsonObject statusInfo) {
+		final String pipelineName = String.valueOf(statusInfo.getValue("pipeline", "name"));
+		final String pipelineCounter = String.valueOf(statusInfo.getValue("pipeline", "counter"));
 		CIEvent event = DTOFactory.getInstance().newDTO(CIEvent.class)
 			.setEventType(CIEventType.STARTED)
-			.setProject(String.valueOf(statusInfo.getValue("pipeline", "name")))
-			.setProjectDisplayName(String.valueOf(statusInfo.getValue("pipeline", "name")))
-			.setBuildCiId(String.valueOf(statusInfo.getValue("pipeline", "counter")))
-			.setNumber(String.valueOf(statusInfo.getValue("pipeline", "counter")))
+			.setProject(pipelineName)
+			.setProjectDisplayName(pipelineName)
+			.setBuildCiId(pipelineCounter)
+			.setNumber(pipelineCounter)
 			.setCauses(Collections.<CIEventCause>emptyList());
 
 		Date createTime = parseTime(String.valueOf(statusInfo.getValue("pipeline", "stage", "create-time")));
