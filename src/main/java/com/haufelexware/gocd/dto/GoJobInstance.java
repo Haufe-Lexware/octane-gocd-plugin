@@ -17,7 +17,7 @@ public class GoJobInstance {
 	private long scheduledDate;
 	private String result;
 	private String state;
-	@SerializedName("job_state_transition")
+	@SerializedName("job_state_transitions")
 	private List<GoJobStateTransition> jobStateTransitions;
 
 	public int getId() {
