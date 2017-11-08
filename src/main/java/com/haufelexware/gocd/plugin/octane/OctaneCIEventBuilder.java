@@ -115,9 +115,14 @@ public class OctaneCIEventBuilder {
 
 		// determine the start-time of this pipeline.
 		GoPipelineInstance pipelineInstance = new GoGetPipelineInstance(goApiClient).get(pipelineName, Integer.valueOf(pipelineCounter));
-		Date lastTransitionTime = parseTime(String.valueOf(statusInfo.getValue("pipeline", "stage", "last-transition-time")));
-		if (lastTransitionTime != null && pipelineInstance != null && pipelineInstance.getFirstScheduledDate() != null) {
-			event.setDuration(lastTransitionTime.getTime() - pipelineInstance.getFirstScheduledDate()); // in ms
+		if (pipelineInstance != null) {
+			Long firstScheduledDate = pipelineInstance.getFirstScheduledDate();
+			// correct the start time to the first documented date.
+			event.setStartTime(firstScheduledDate);
+			Date lastTransitionTime = parseTime(String.valueOf(statusInfo.getValue("pipeline", "stage", "last-transition-time")));
+			if (lastTransitionTime != null && firstScheduledDate != null) {
+				event.setDuration(lastTransitionTime.getTime() - firstScheduledDate); // in ms
+			}
 		}
 
 		OctaneSDK.getInstance().getEventsService().publishEvent(event);
