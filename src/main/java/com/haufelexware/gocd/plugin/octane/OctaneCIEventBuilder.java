@@ -1,12 +1,7 @@
 package com.haufelexware.gocd.plugin.octane;
 
-import com.haufelexware.gocd.dto.GenericJsonObject;
-import com.haufelexware.gocd.dto.GoPipelineConfig;
-import com.haufelexware.gocd.dto.GoPipelineInstance;
-import com.haufelexware.gocd.dto.GoStageConfig;
-import com.haufelexware.gocd.service.GoApiClient;
-import com.haufelexware.gocd.service.GoGetPipelineConfig;
-import com.haufelexware.gocd.service.GoGetPipelineInstance;
+import com.haufelexware.gocd.dto.*;
+import com.haufelexware.gocd.service.*;
 import com.hp.octane.integrations.OctaneSDK;
 import com.hp.octane.integrations.dto.DTOFactory;
 import com.hp.octane.integrations.dto.causes.CIEventCause;
@@ -94,6 +89,19 @@ public class OctaneCIEventBuilder {
 			event.setStartTime(createTime.getTime());
 		}
 
+		// try to give an estimate about the expected building time.
+		final List<Long> successfulDurations = getLastSuccessfulDurations(pipelineName, 3);
+		Long estimatedDuration = null;
+		Collections.reverse(successfulDurations); // since the newest instance should have the highest weight, start with the oldest instance.
+		for (Long duration : successfulDurations) {
+			if (estimatedDuration == null) {
+				estimatedDuration = duration;
+			} else {
+				estimatedDuration = (long)(estimatedDuration * 0.5 + duration * 0.5);
+			}
+		}
+		event.setEstimatedDuration(estimatedDuration);
+
 		OctaneSDK.getInstance().getEventsService().publishEvent(event);
 	}
 
@@ -152,5 +160,37 @@ public class OctaneCIEventBuilder {
 			Log.error("Could not parse given time with the assumed pattern", e);
 		}
 		return null; // giving up
+	}
+
+	/**
+	 * This method collects the durations of the last successful pipeline runs.
+	 * @param pipelineName name of the pipeline
+	 * @param amount maximum number of durations
+	 * @return found durations as a list. Never null. Might be less than the wanted amount.
+	 */
+	protected List<Long> getLastSuccessfulDurations(final String pipelineName, final int amount) {
+		final List<Long> successfulDurations = new ArrayList<>();
+		for (GoPipelineInstance instance : new GoGetPipelineHistory(goApiClient).get(pipelineName)) {
+			if (successfulDurations.size() >= amount) {
+				break; // enough durations collected.
+			}
+			if (!instance.isPassed()) {
+				continue; // skip incomplete instances.
+			}
+			Long startTime = instance.getFirstScheduledDate();
+			// PipelineInstance do not contain the jobTransitions, we have to query them.
+			GoStageInstance stage = instance.getLastStage();
+			if (stage != null) {
+				GoStageInstance detailedStageInstance = new GoGetStageInstance(goApiClient).get(pipelineName, instance.getCounter(), stage.getName(), Integer.valueOf(stage.getCounter()));
+				if (detailedStageInstance != null) {
+					Long lastTransitionTime = detailedStageInstance.getLastJobTransitionDate();
+					if (lastTransitionTime != null) {
+						successfulDurations.add(lastTransitionTime - startTime);
+					}
+				}
+			}
+
+		}
+		return successfulDurations;
 	}
 }

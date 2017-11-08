@@ -94,6 +94,10 @@ public class GoPipelineInstance {
 		this.stages = stages;
 	}
 
+	public GoStageInstance getLastStage() {
+		return stages != null && !stages.isEmpty() ? stages.get(stages.size() - 1) : null;
+	}
+
 	public Long getFirstScheduledDate() {
 		if (stages != null && !stages.isEmpty()) {
 			return stages.get(0).getFirstScheduledDate();
@@ -118,5 +122,14 @@ public class GoPipelineInstance {
 		} else {
 			return null;
 		}
+	}
+
+	public boolean isPassed() {
+		for (GoStageInstance stageInstance : stages) {
+			if (!"Passed".equals(stageInstance.getResult())) {
+				return false;
+			}
+		}
+		return true;
 	}
 }
