@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="\go\pipelines\pt_build_datageneration_tool\top\datageneration\Haufe.PT.DataGeneration\test\Haufe.PT.DataGeneration.Tests\bin\Release\Haufe.PT.DataGeneration.Tests.dll" total="6" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2017-11-02" time="09:34:09">
+  <environment nunit-version="3.5.0.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 10.0.14393.0" platform="Win32NT" cwd="\go\pipelines\pt_build_datageneration_tool\top\datageneration\Haufe.PT.DataGeneration" machine-name="ACME" user="donald" user-domain="topsecret" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="\go\pipelines\pt_build_datageneration_tool\top\datageneration\Haufe.PT.DataGeneration\test\Haufe.PT.DataGeneration.Tests\bin\Release\Haufe.PT.DataGeneration.Tests.dll" executed="True" result="Success" success="True" time="0.153" asserts="15">
+    <properties>
+      <property name="_PID" value="2216" />
+      <property name="_APPDOMAIN" value="test-domain-" />
+    </properties>
+    <results>
+      <test-suite type="TestSuite" name="Haufe" executed="True" result="Success" success="True" time="0.115" asserts="15">
+        <results>
+          <test-suite type="TestSuite" name="PT" executed="True" result="Success" success="True" time="0.114" asserts="15">
+            <results>
+              <test-suite type="TestSuite" name="DataGeneration" executed="True" result="Success" success="True" time="0.114" asserts="15">
+                <results>
+                  <test-suite type="TestSuite" name="Tests" executed="True" result="Success" success="True" time="0.114" asserts="15">
+                    <results>
+                      <test-suite type="TestFixture" name="CommandLineOptionsTests" executed="True" result="Success" success="True" time="0.106" asserts="15">
+                        <results>
+                          <test-case name="Haufe.PT.DataGeneration.Tests.CommandLineOptionsTests.TestParseGenerators_MultipleGenerators_OneIncorrect" executed="True" result="Success" success="True" time="0.045" asserts="1" />
+                          <test-case name="Haufe.PT.DataGeneration.Tests.CommandLineOptionsTests.TestParseGenerators_OneGenerator" executed="True" result="Success" success="True" time="0.039" asserts="4" />
+                          <test-case name="Haufe.PT.DataGeneration.Tests.CommandLineOptionsTests.TestParseGeneratorsEmptyString" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                          <test-case name="Haufe.PT.DataGeneration.Tests.CommandLineOptionsTests.TestParseGeneratorsIncorrectNumberForGenerator" executed="True" result="Success" success="True" time="0.004" asserts="1" />
+                          <test-case name="Haufe.PT.DataGeneration.Tests.CommandLineOptionsTests.TestParseGeneratorsMultipleGenerators" executed="True" result="Success" success="True" time="0.003" asserts="7" />
+                          <test-case name="Haufe.PT.DataGeneration.Tests.CommandLineOptionsTests.TestParseGeneratorsSameGeneratorMentionedTwice" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
