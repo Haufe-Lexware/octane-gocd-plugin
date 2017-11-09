@@ -1,6 +1,7 @@
 package com.haufelexware.octane;
 
 import com.haufelexware.gocd.dto.*;
+import com.haufelexware.gocd.plugin.octane.OctaneTestResultsBuilder;
 import com.haufelexware.gocd.service.*;
 import com.haufelexware.gocd.plugin.octane.settings.OctaneGoCDPluginSettings;
 import com.haufelexware.util.checker.Checker;
@@ -20,6 +21,9 @@ import com.hp.octane.integrations.dto.snapshots.CIBuildResult;
 import com.hp.octane.integrations.dto.snapshots.CIBuildStatus;
 import com.hp.octane.integrations.dto.snapshots.SnapshotNode;
 import com.hp.octane.integrations.dto.snapshots.SnapshotPhase;
+import com.hp.octane.integrations.dto.tests.BuildContext;
+import com.hp.octane.integrations.dto.tests.TestRun;
+import com.hp.octane.integrations.dto.tests.TestsResult;
 import com.hp.octane.integrations.spi.CIPluginServicesBase;
 import com.thoughtworks.go.plugin.api.logging.Logger;
 
@@ -270,5 +274,35 @@ public class GoPluginServices extends CIPluginServicesBase {
 								}))));
 					}
 				}))));
+	}
+
+	@Override
+	public TestsResult getTestsResult(final String jobId, final String buildNumber) {
+		Log.debug("Retrieving test results for '" + jobId + "' and buildNumber '" + buildNumber + "'");
+		final TestsResult result = DTOFactory.getInstance().newDTO(TestsResult.class)
+			.setBuildContext(DTOFactory.getInstance().newDTO(BuildContext.class).setServerId(goServerID))
+			.setTestRuns(new ArrayList<TestRun>());
+
+		/** Use the same client for all requests in this method. Notice that {@link GoGetAllArtifacts}
+		 * needs an authentication cookie which is received by the client when performing an API request. */
+		final GoApiClient goApiClient = getGoApiClient();
+		GoPipelineInstance pipelineInstance = new GoGetPipelineInstance(goApiClient).get(jobId, Integer.valueOf(buildNumber));
+		if (pipelineInstance != null && pipelineInstance.getStages() != null) {
+			result.getBuildContext()
+				.setJobId(pipelineInstance.getName())
+				.setJobName(pipelineInstance.getName())
+				.setBuildId(String.valueOf(pipelineInstance.getCounter()))
+				.setBuildName(pipelineInstance.getLabel());
+
+			for (GoStageInstance stageInstance : pipelineInstance.getStages()) {
+				if (stageInstance.getJobs() != null) {
+					for (GoJobInstance jobInstance : stageInstance.getJobs()) {
+						List<GoArtifact> artifacts = new GoGetAllArtifacts(goApiClient).get(pipelineInstance.getName(), pipelineInstance.getCounter(), stageInstance.getName(), Integer.valueOf(stageInstance.getCounter()), jobInstance.getName());
+						result.getTestRuns().addAll(new OctaneTestResultsBuilder(goApiClient).convert(artifacts));
+					}
+				}
+			}
+		}
+		return result;
 	}
 }

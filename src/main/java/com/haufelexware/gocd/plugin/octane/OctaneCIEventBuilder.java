@@ -136,6 +136,8 @@ public class OctaneCIEventBuilder {
 		}
 
 		OctaneSDK.getInstance().getEventsService().publishEvent(event);
+		// tell octane to request the test results.
+		OctaneSDK.getInstance().getTestsService().enqueuePushTestsResult(pipelineName, pipelineCounter);
 	}
 
 	/**

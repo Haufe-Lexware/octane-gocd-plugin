@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.haufelexware.report.junit.JUnitReportParserTest" tests="3" skipped="1" failures="1" errors="0" timestamp="2017-11-08T13:13:06" hostname="hypo" time="0.057">
+	<properties/>
+	<testcase name="testComparison" classname="com.haufelexware.report.junit.JUnitReportParserTest" time="0.057">
+		<failure message="org.junit.ComparisonFailure: 1 is not 2" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: 1 is not 2
+			at org.junit.Assert.assertEquals(Assert.java:115)
+		</failure>
+	</testcase>
+	<testcase name="ignoredTest" classname="com.haufelexware.report.junit.JUnitReportParserTest" time="0.0">
+		<skipped/>
+	</testcase>
+	<testcase name="testWithOwnOutput" classname="com.haufelexware.report.junit.JUnitReportParserTest" time="0.0">
+		<system-out><![CDATA[]]></system-out>
+		<system-err><![CDATA[]]></system-err>
+	</testcase>
+	<system-out><![CDATA[]]></system-out>
+	<system-err><![CDATA[]]></system-err>
+</testsuite>
