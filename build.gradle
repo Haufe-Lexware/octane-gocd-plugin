@@ -21,7 +21,7 @@ dependencies {
 		exclude module:'integrations-dto' // all DTOs are already included in the SDK
 	}
 	compile 'com.google.code.gson:gson:2.8.+'
-	compileOnly 'org.apache.httpcomponents:httpclient:4.5.2' // this client is also already bundled in the SDK no need to bundle it separately.
+	compile 'org.apache.httpcomponents:httpclient:4.5.2' // this httpclient is also contained in the SDK, but some classes of it are missing, so we need to have the original file.
 
 	runtime 'commons-logging:commons-logging:1.2' // necessary for the httpclient
 

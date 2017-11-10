@@ -305,4 +305,10 @@ public class GoPluginServices extends CIPluginServicesBase {
 		}
 		return result;
 	}
+
+	@Override
+	public void runPipeline(String ciJobId, String originalBody) {
+		Log.debug("Triggering pipeline '" + ciJobId + "' to run");
+		new GoSchedulePipeline(getGoApiClient()).trigger(ciJobId);
+	}
 }
