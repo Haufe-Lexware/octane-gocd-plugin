@@ -133,6 +133,8 @@ public class OctaneCIEventBuilder {
 			if (lastTransitionTime != null && firstScheduledDate != null) {
 				event.setDuration(lastTransitionTime.getTime() - firstScheduledDate); // in ms
 			}
+			// add repository information to the event.
+			event.setScmData(new OctaneSCMDataBuilder().retrieveFrom(pipelineInstance));
 		}
 
 		OctaneSDK.getInstance().getEventsService().publishEvent(event);

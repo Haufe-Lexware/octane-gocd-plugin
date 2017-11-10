@@ -2,6 +2,8 @@ package com.haufelexware.gocd.dto;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 /**
  * This DTO represent the cause of a build.
  */
@@ -12,6 +14,8 @@ public class GoBuildCause {
 	private boolean triggerForced;
 	@SerializedName("trigger_message")
 	private String triggerMessage;
+	@SerializedName("material_revisions")
+	private List<GoMaterialRevision> materialRevision;
 
 	public String getApprover() {
 		return approver;
@@ -35,5 +39,13 @@ public class GoBuildCause {
 
 	public void setTriggerMessage(String triggerMessage) {
 		this.triggerMessage = triggerMessage;
+	}
+
+	public List<GoMaterialRevision> getMaterialRevision() {
+		return materialRevision;
+	}
+
+	public void setMaterialRevision(List<GoMaterialRevision> materialRevision) {
+		this.materialRevision = materialRevision;
 	}
 }
