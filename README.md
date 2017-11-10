@@ -1,9 +1,9 @@
 # HPE ALM Octane GoCD plugin
-This plugin integrates GoCD with HPE ALM Octane, Making GoCD pipelines accessible in HPE ALM Octane and allowing to
+This plugin integrates GoCD with HPE ALM Octane. Making GoCD pipelines accessible in HPE ALM Octane and allowing to
 analyze build quality and test results.
 
 ## Requirements
-This plugin requires GoCD to run in version 17.9.0 or higher.
+This plugin requires GoCD to run in version 17.9 or higher.
 
 ## How to install
 This plugin has to be installed on your GoCD-server. Take the following steps:
