@@ -1,4 +1,4 @@
-package com.haufelexware.gocd.plugin.octane;
+package com.haufelexware.gocd.plugin.octane.converter;
 
 import com.haufelexware.gocd.service.GoApiClient;
 import com.haufelexware.gocd.service.GoGetArtifact;

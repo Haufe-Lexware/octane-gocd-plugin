@@ -1,7 +1,7 @@
 package com.haufelexware.octane;
 
 import com.haufelexware.gocd.dto.*;
-import com.haufelexware.gocd.plugin.octane.OctaneTestResultsBuilder;
+import com.haufelexware.gocd.plugin.octane.converter.OctaneTestResultsBuilder;
 import com.haufelexware.gocd.service.*;
 import com.haufelexware.gocd.plugin.octane.settings.OctaneGoCDPluginSettings;
 import com.haufelexware.util.checker.Checker;

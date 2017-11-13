@@ -1,4 +1,4 @@
-package com.haufelexware.gocd.plugin.octane;
+package com.haufelexware.gocd.plugin.octane.converter;
 
 import com.haufelexware.gocd.dto.*;
 import com.hp.octane.integrations.dto.DTOFactory;

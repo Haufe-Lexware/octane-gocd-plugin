@@ -3,6 +3,7 @@ package com.haufelexware.gocd.plugin.octane;
 import com.google.gson.Gson;
 import com.haufelexware.gocd.dto.GenericJsonObject;
 import com.haufelexware.gocd.dto.GoServerInfo;
+import com.haufelexware.gocd.plugin.octane.converter.OctaneCIEventBuilder;
 import com.haufelexware.gocd.plugin.octane.settings.OctaneGoCDPluginSettings;
 import com.haufelexware.gocd.plugin.octane.settings.OctaneGoCDPluginSettingsWrapper;
 import com.haufelexware.gocd.plugin.octane.settings.SettingsValidator;
