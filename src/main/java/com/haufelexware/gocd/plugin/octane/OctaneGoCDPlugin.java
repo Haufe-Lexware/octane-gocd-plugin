@@ -91,7 +91,7 @@ public class OctaneGoCDPlugin implements GoPlugin {
 	public GoPluginApiResponse handle(GoPluginApiRequest request) throws UnhandledRequestTypeException {
 		if ("stage-status".equals(request.requestName())) { // server is informing about a status change.
 			GenericJsonObject statusInfo = new Gson().fromJson(request.requestBody(), GenericJsonObject.class);
-			new OctaneCIEventBuilder(goPluginServices.getGoApiClient()).sendCIEvent(statusInfo);
+			new OctaneCIEventBuilder(goPluginServices.createGoApiClient()).sendCIEvent(statusInfo);
 			return new DefaultGoPluginApiResponse(200, new Gson().toJson(Collections.singletonMap("status", "success")));
 		} else if ("go.plugin-settings.get-view".equals(request.requestName())) { // server is requesting the HTML template for this plugin's configuration.
 			try {

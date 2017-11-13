@@ -69,7 +69,7 @@ public class GoPluginServices extends CIPluginServicesBase {
 		this.goServerURL = goServerURL;
 	}
 
-	public GoApiClient getGoApiClient() {
+	public GoApiClient createGoApiClient() {
 		try {
 			return new GoApiClient(new URL(goServerURL), settings.getGoUsername(), settings.getGoPassword());
 		} catch (MalformedURLException e) {
@@ -148,7 +148,7 @@ public class GoPluginServices extends CIPluginServicesBase {
 	public CIJobsList getJobsList(boolean includeParameters) {
 		Log.debug("Retrieving all current pipelines with includeParameters=" + includeParameters);
 		List<PipelineNode> pipelineNodes = new ArrayList<>();
-		for (GoPipelineGroup group : new GoGetPipelineGroups(getGoApiClient()).get()) {
+		for (GoPipelineGroup group : new GoGetPipelineGroups(createGoApiClient()).get()) {
 			for (GoPipeline pipeline : group.getPipelines()) {
 				pipelineNodes.add(DTOFactory.getInstance().newDTO(PipelineNode.class)
 					.setJobCiId(pipeline.getName())
@@ -165,7 +165,7 @@ public class GoPluginServices extends CIPluginServicesBase {
 		if (rootCIJobId == null || rootCIJobId.isEmpty()) {
 			throw new IllegalArgumentException("no pipeline identifier was given");
 		}
-		final GoPipelineConfig config = new GoGetPipelineConfig(getGoApiClient()).get(rootCIJobId);
+		final GoPipelineConfig config = new GoGetPipelineConfig(createGoApiClient()).get(rootCIJobId);
 		if (config == null) {
 			return null;
 		}
@@ -200,7 +200,7 @@ public class GoPluginServices extends CIPluginServicesBase {
 	@Override
 	public SnapshotNode getSnapshotLatest(String ciJobId, boolean subTree) {
 		Log.debug("Retrieving latest snapshot for '" + ciJobId + "' including subTree=" + subTree);
-		final List<GoPipelineInstance> instances = new GoGetPipelineHistory(getGoApiClient()).get(ciJobId);
+		final List<GoPipelineInstance> instances = new GoGetPipelineHistory(createGoApiClient()).get(ciJobId);
 		if (instances == null || instances.isEmpty()) {
 			return null;
 		}
@@ -216,7 +216,7 @@ public class GoPluginServices extends CIPluginServicesBase {
 		} catch (NumberFormatException e) {
 			throw new IllegalArgumentException("given buildId '" + buildId + "' could not be parsed as Integer", e);
 		}
-		return convertToSnapshotNode(new GoGetPipelineInstance(getGoApiClient()).get(ciJobId, counter));
+		return convertToSnapshotNode(new GoGetPipelineInstance(createGoApiClient()).get(ciJobId, counter));
 	}
 
 	/**
@@ -287,7 +287,7 @@ public class GoPluginServices extends CIPluginServicesBase {
 
 		/** Use the same client for all requests in this method. Notice that {@link GoGetAllArtifacts}
 		 * needs an authentication cookie which is received by the client when performing an API request. */
-		final GoApiClient goApiClient = getGoApiClient();
+		final GoApiClient goApiClient = createGoApiClient();
 		GoPipelineInstance pipelineInstance = new GoGetPipelineInstance(goApiClient).get(jobId, Integer.valueOf(buildNumber));
 		if (pipelineInstance != null && pipelineInstance.getStages() != null) {
 			result.getBuildContext()
@@ -311,6 +311,6 @@ public class GoPluginServices extends CIPluginServicesBase {
 	@Override
 	public void runPipeline(String ciJobId, String originalBody) {
 		Log.debug("Triggering pipeline '" + ciJobId + "' to run");
-		new GoSchedulePipeline(getGoApiClient()).trigger(ciJobId);
+		new GoSchedulePipeline(createGoApiClient()).trigger(ciJobId);
 	}
 }
