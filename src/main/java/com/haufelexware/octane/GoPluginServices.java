@@ -146,6 +146,7 @@ public class GoPluginServices extends CIPluginServicesBase {
 
 	@Override
 	public CIJobsList getJobsList(boolean includeParameters) {
+		Log.debug("Retrieving all current pipelines with includeParameters=" + includeParameters);
 		List<PipelineNode> pipelineNodes = new ArrayList<>();
 		for (GoPipelineGroup group : new GoGetPipelineGroups(getGoApiClient()).get()) {
 			for (GoPipeline pipeline : group.getPipelines()) {
@@ -160,6 +161,7 @@ public class GoPluginServices extends CIPluginServicesBase {
 
 	@Override
 	public PipelineNode getPipeline(final String rootCIJobId) {
+		Log.debug("Retrieving pipeline configuration for '" + rootCIJobId + "'");
 		if (rootCIJobId == null || rootCIJobId.isEmpty()) {
 			throw new IllegalArgumentException("no pipeline identifier was given");
 		}
