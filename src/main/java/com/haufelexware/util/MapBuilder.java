@@ -1,4 +1,4 @@
-package com.haufelexware.gocd.plugin.octane.util;
+package com.haufelexware.util;
 
 import java.util.Map;
 

@@ -3,7 +3,7 @@ package com.haufelexware.gocd.service;
 import com.google.gson.Gson;
 import com.haufelexware.gocd.dto.GoPipelineGroup;
 import com.haufelexware.gocd.dto.GoPipelineGroups;
-import com.haufelexware.gocd.plugin.octane.util.Streams;
+import com.haufelexware.util.Streams;
 import com.thoughtworks.go.plugin.api.logging.Logger;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
