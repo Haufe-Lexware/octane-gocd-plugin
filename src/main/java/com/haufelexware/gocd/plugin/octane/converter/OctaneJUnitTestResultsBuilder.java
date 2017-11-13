@@ -3,10 +3,12 @@ package com.haufelexware.gocd.plugin.octane.converter;
 import com.haufelexware.gocd.service.GoApiClient;
 import com.haufelexware.gocd.service.GoGetArtifact;
 import com.haufelexware.report.junit.JUnitReportParser;
+import com.haufelexware.report.junit.dom.JUnitFailure;
 import com.haufelexware.report.junit.dom.JUnitTestCase;
 import com.haufelexware.report.junit.dom.JUnitTestSuite;
 import com.hp.octane.integrations.dto.DTOFactory;
 import com.hp.octane.integrations.dto.tests.TestRun;
+import com.hp.octane.integrations.dto.tests.TestRunError;
 import com.hp.octane.integrations.dto.tests.TestRunResult;
 import com.hp.octane.integrations.dto.tests.TestsResult;
 import com.thoughtworks.go.plugin.api.logging.Logger;
@@ -54,7 +56,8 @@ public class OctaneJUnitTestResultsBuilder {
 						.setStarted(startTime)
 						.setResult(convert(testCase))
 						.setModuleName(testSuite.getName())
-						.setPackageName(extractPackageName(testSuite.getName())));
+						.setPackageName(extractPackageName(testSuite.getName()))
+						.setError(extractTestRunError(testCase)));
 				}
 			}
 		} catch (JAXBException e) {
@@ -78,5 +81,16 @@ public class OctaneJUnitTestResultsBuilder {
 	public static String extractPackageName(String className) {
 		int index = className.lastIndexOf(".");
 		return index > -1 ? className.substring(0, index) : className;
+	}
+
+	public static TestRunError extractTestRunError(JUnitTestCase testCase) {
+		if (testCase.getFailures() != null && !testCase.getFailures().isEmpty()) {
+			JUnitFailure failure = testCase.getFailures().get(0);
+			return DTOFactory.getInstance().newDTO(TestRunError.class)
+				.setErrorMessage(failure.getMessage())
+				.setErrorType(failure.getType())
+				.setStackTrace(failure.getContent());
+		}
+		return null;
 	}
 }
