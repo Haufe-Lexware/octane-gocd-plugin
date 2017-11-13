@@ -24,7 +24,7 @@ public class NUnitReportParserTest {
 		Assert.assertNotNull("test-suite should not be null", testSuite);
 		Assert.assertEquals("test-suite type", "Assembly", testSuite.getType());
 		Assert.assertEquals("test-suite name", "\\go\\pipelines\\pt_build_datageneration_tool\\top\\datageneration\\Haufe.PT.DataGeneration\\test\\Haufe.PT.DataGeneration.Tests\\bin\\Release\\Haufe.PT.DataGeneration.Tests.dll", testSuite.getName());
-		Assert.assertEquals("test-suite executed", Boolean.TRUE, testSuite.getExecuted());
+		Assert.assertEquals("test-suite executed", Boolean.TRUE, testSuite.wasExecuted());
 		Assert.assertEquals("test-suite result", "Success", testSuite.getResult());
 		Assert.assertEquals("test-suite success", Boolean.TRUE, testSuite.wasSuccess());
 		Assert.assertTrue("test-suite time is greater zero", 0 < testSuite.getTime());

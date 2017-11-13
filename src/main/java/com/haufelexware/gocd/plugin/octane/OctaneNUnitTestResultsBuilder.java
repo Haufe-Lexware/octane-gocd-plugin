@@ -64,7 +64,7 @@ public class OctaneNUnitTestResultsBuilder {
 	}
 
 	public static TestRunResult convert(NUnitTestCase testCase) {
-		if (!testCase.getExecuted()) {
+		if (!testCase.wasExecuted()) {
 			return TestRunResult.SKIPPED;
 		} else if (testCase.wasSuccess()) {
 			return TestRunResult.PASSED;

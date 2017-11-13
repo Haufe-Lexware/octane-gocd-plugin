@@ -34,11 +34,11 @@ public class NUnitTest {
 		this.name = name;
 	}
 
-	public Boolean getExecuted() {
+	public Boolean wasExecuted() {
 		return executed;
 	}
 
-	public void wasExecuted(Boolean executed) {
+	public void setExecuted(Boolean executed) {
 		this.executed = executed;
 	}
 
