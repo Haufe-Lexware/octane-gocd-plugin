@@ -15,7 +15,7 @@ import java.util.List;
 public class NUnitReportParserTest {
 
 	@Test
-	public void testParsingJUnit4Report() throws JAXBException {
+	public void testParsingNUnit35Report() throws JAXBException {
 		NUnitTestResults results = new NUnitReportParser().parseFrom(getClass().getClassLoader().getResourceAsStream("nunit.testResults.xml"));
 		Assert.assertNotNull("results should not be null", results);
 		Assert.assertEquals("run date", "2017-11-02", results.getDate());
