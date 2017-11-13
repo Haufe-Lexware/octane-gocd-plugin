@@ -25,6 +25,8 @@ public class NUnitTest {
 	private double time;
 	@XmlAttribute
 	private int asserts;
+	@XmlElement
+	private NUnitFailure failure;
 
 	public String getName() {
 		return name;
@@ -72,5 +74,13 @@ public class NUnitTest {
 
 	public void setAsserts(int asserts) {
 		this.asserts = asserts;
+	}
+
+	public NUnitFailure getFailure() {
+		return failure;
+	}
+
+	public void setFailure(NUnitFailure failure) {
+		this.failure = failure;
 	}
 }

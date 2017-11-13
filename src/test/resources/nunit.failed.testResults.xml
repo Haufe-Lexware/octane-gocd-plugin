@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="\go\pipelines\pt_actors_release\top\backend\Provisioning\PubSub\Haufe.PT.Actors.IntegrationTests\ActorsEndToEndTest\bin\Release\ActorsEndToEndTest.dll" total="1" errors="0" failures="1" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2017-11-07" time="14:57:13">
+  <environment nunit-version="3.5.0.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 10.0.14393.0" platform="Win32NT" cwd="\go\pipelines\pt_actors_release\top\backend\Provisioning\PubSub\Haufe.PT.Actors.IntegrationTests" machine-name="coruscant" user="yoda" user-domain="jedi" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="\go\pipelines\pt_actors_release\top\backend\Provisioning\PubSub\Haufe.PT.Actors.IntegrationTests\ActorsEndToEndTest\bin\Release\ActorsEndToEndTest.dll" executed="True" result="Failure" success="False" time="1800.750" asserts="0">
+    <properties>
+      <property name="_PID" value="2556" />
+      <property name="_APPDOMAIN" value="test-domain-" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+      <stack-trace />
+    </failure>
+    <results>
+      <test-suite type="TestSuite" name="Haufe" executed="True" result="Failure" success="False" time="1800.718" asserts="0">
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+          <stack-trace />
+        </failure>
+        <results>
+          <test-suite type="TestSuite" name="PT" executed="True" result="Failure" success="False" time="1800.713" asserts="0">
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+              <stack-trace />
+            </failure>
+            <results>
+              <test-suite type="TestSuite" name="Actors" executed="True" result="Failure" success="False" time="1800.709" asserts="0">
+                <failure>
+                  <message><![CDATA[One or more child tests had errors]]></message>
+                  <stack-trace />
+                </failure>
+                <results>
+                  <test-suite type="TestFixture" name="ActorsEndToEndTest" executed="True" result="Failure" success="False" time="1800.705" asserts="0">
+                    <failure>
+                      <message><![CDATA[One or more child tests had errors]]></message>
+                      <stack-trace />
+                    </failure>
+                    <results>
+                      <test-suite type="ParameterizedTest" name="TestActorsFromEndToEnd" executed="True" result="Failure" success="False" time="1800.124" asserts="0">
+                        <properties>
+                          <property name="Timeout" value="1800000" />
+                        </properties>
+                        <failure>
+                          <message><![CDATA[One or more child tests had errors]]></message>
+                          <stack-trace />
+                        </failure>
+                        <results>
+                          <test-case name="Haufe.PT.Actors.ActorsEndToEndTest.TestActorsFromEndToEnd(10)" executed="True" result="Failure" success="False" time="1800.111" asserts="0">
+                            <failure>
+                              <message><![CDATA[Test exceeded Timeout value of 1800000ms]]></message>
+                              <stack-trace />
+                            </failure>
+                          </test-case>
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
