@@ -11,7 +11,7 @@
 </div>
 <div class="form_item_block">
 	<label for="octane-gocd-plugin-client-secret">Client Secret<span class="asterisk">*</span></label>
-	<input id="octane-gocd-plugin-client-secret" ng-model="clientSecret" type="text"/>
+	<input id="octane-gocd-plugin-client-secret" ng-model="clientSecret" type="password"/>
 	<span class="form_error" ng-show="GOINPUTNAME[clientSecret].$error.server">{{GOINPUTNAME[clientSecret].$error.server}}</span>
 </div>
 <div class="form_item_block">
@@ -21,6 +21,6 @@
 </div>
 <div class="form_item_block">
 	<label for="octane-gocd-plugin-go-api-password">Go API Password<span class="asterisk">*</span></label>
-	<input id="octane-gocd-plugin-go-api-password" ng-model="goPassword" type="text"/>
+	<input id="octane-gocd-plugin-go-api-password" ng-model="goPassword" type="password"/>
 	<span class="form_error" ng-show="GOINPUTNAME[goPassword].$error.server">{{GOINPUTNAME[goPassword].$error.server}}</span>
 </div>
