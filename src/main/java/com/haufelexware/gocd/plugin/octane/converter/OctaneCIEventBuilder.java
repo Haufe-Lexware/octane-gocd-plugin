@@ -37,9 +37,11 @@ public class OctaneCIEventBuilder {
 	protected static final Logger Log = Logger.getLoggerFor(OctaneCIEventBuilder.class);
 
 	private final GoApiClient goApiClient;
+	private final OctaneSDK octaneInstance;
 
-	public OctaneCIEventBuilder(GoApiClient goApiClient) {
+	public OctaneCIEventBuilder(final GoApiClient goApiClient, final OctaneSDK octaneInstance) {
 		this.goApiClient = goApiClient;
+		this.octaneInstance = octaneInstance;
 	}
 
 	/**
@@ -102,7 +104,7 @@ public class OctaneCIEventBuilder {
 		}
 		event.setEstimatedDuration(estimatedDuration);
 
-		OctaneSDK.getInstance().getEventsService().publishEvent(event);
+		octaneInstance.getEventsService().publishEvent(event);
 	}
 
 	private void sendEndEvent(GenericJsonObject statusInfo) {
@@ -137,9 +139,9 @@ public class OctaneCIEventBuilder {
 			event.setScmData(new OctaneSCMDataBuilder().retrieveFrom(pipelineInstance));
 		}
 
-		OctaneSDK.getInstance().getEventsService().publishEvent(event);
+		octaneInstance.getEventsService().publishEvent(event);
 		// tell octane to request the test results.
-		OctaneSDK.getInstance().getTestsService().enqueuePushTestsResult(pipelineName, pipelineCounter);
+		octaneInstance.getTestsService().enqueuePushTestsResult(pipelineName, pipelineCounter);
 	}
 
 	/**
