@@ -7,6 +7,7 @@ import com.haufelexware.gocd.plugin.octane.converter.OctaneCIEventBuilder;
 import com.haufelexware.gocd.plugin.octane.settings.OctaneGoCDPluginSettings;
 import com.haufelexware.gocd.plugin.octane.settings.OctaneGoCDPluginSettingsWrapper;
 import com.haufelexware.gocd.plugin.octane.settings.SettingsValidator;
+import com.haufelexware.gocd.service.GoGetPipelineGroupsAsTest;
 import com.haufelexware.util.MapBuilder;
 import com.haufelexware.util.Streams;
 import com.haufelexware.gocd.plugin.octane.validation.ValidationIssue;
@@ -25,6 +26,7 @@ import com.thoughtworks.go.plugin.api.request.GoPluginApiRequest;
 import com.thoughtworks.go.plugin.api.response.DefaultGoPluginApiResponse;
 import com.thoughtworks.go.plugin.api.response.GoApiResponse;
 import com.thoughtworks.go.plugin.api.response.GoPluginApiResponse;
+import org.apache.http.HttpResponse;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -139,9 +141,11 @@ public class OctaneGoCDPlugin implements GoPlugin {
 			final OctaneGoCDPluginSettings settings = wrapper.getPluginSettings();
 			final List<ValidationIssue> issues = new SettingsValidator().validate(settings);
 			if (issues.isEmpty()) { // test the connection if no validation issues have been found so far.
-				((GoPluginServices)OctaneSDK.getInstance().getPluginServices()).setSettings(settings);
+				final GoPluginServices pluginServices = (GoPluginServices)OctaneSDK.getInstance().getPluginServices();
+				pluginServices.setSettings(settings);
 				try {
-					final OctaneConfiguration config = OctaneSDK.getInstance().getPluginServices().getOctaneConfiguration();
+					// the the connection towards Octane.
+					final OctaneConfiguration config = pluginServices.getOctaneConfiguration();
 					OctaneResponse response = OctaneSDK.getInstance().getConfigurationService().validateConfiguration(config);
 					if (response.getStatus() == 401) { // authentication failed
 						issues.add(new ValidationIssue("clientID", "Could not authenticate with Octane. Response: " + response.getStatus() + " " + response.getBody()));
@@ -153,6 +157,11 @@ public class OctaneGoCDPlugin implements GoPlugin {
 					OctaneSDK.getInstance().getConfigurationService().notifyChange();
 				} catch (IllegalArgumentException|IOException e) {
 					issues.add(new ValidationIssue("serverURL", "Could not connect to Octane. Exception thrown: " + e));
+				}
+				// test the connection towards GoCD.
+				HttpResponse httpResponse = new GoGetPipelineGroupsAsTest(pluginServices.createGoApiClient()).getHttpResponse();
+				if (httpResponse.getStatusLine().getStatusCode() != 200) {
+					issues.add(new ValidationIssue("goUsername", "Could not authenticate with GoCD. Response: " + httpResponse.getStatusLine().getStatusCode() + " " + httpResponse.getStatusLine().getReasonPhrase()));
 				}
 			}
 			return new DefaultGoPluginApiResponse(200, new Gson().toJson(issues));
