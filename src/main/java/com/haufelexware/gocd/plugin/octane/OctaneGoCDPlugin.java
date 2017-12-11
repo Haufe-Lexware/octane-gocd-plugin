@@ -149,6 +149,7 @@ public class OctaneGoCDPlugin implements GoPlugin {
 						issues.add(new ValidationIssue("serverURL", "Could not connect to Octane. Response: " + response.getStatus() + " " + response.getBody()));
 					}
 					// if this point is reached the configuration seems valid. notify the SDK about the new config.
+					OctaneSDK.getInstance().getRestService().obtainClient(); // make sure the default client exists.
 					OctaneSDK.getInstance().getConfigurationService().notifyChange();
 				} catch (IllegalArgumentException|IOException e) {
 					issues.add(new ValidationIssue("serverURL", "Could not connect to Octane. Exception thrown: " + e));
