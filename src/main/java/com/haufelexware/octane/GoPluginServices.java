@@ -79,7 +79,7 @@ public class GoPluginServices extends CIPluginServicesBase {
 
 	@Override
 	public CIPluginInfo getPluginInfo() {
-		return DTOFactory.getInstance().newDTO(CIPluginInfo.class).setVersion("1.1");
+		return DTOFactory.getInstance().newDTO(CIPluginInfo.class).setVersion("1.0");
 	}
 
 	@Override
