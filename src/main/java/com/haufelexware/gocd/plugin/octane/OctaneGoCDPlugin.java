@@ -56,7 +56,8 @@ public class OctaneGoCDPlugin implements GoPlugin {
 			request.setRequestBody(new Gson().toJson(Collections.singletonMap("plugin-id", PluginID)));
 			GoApiResponse response = goApplicationAccessor.submit(request);
 			if (response.responseCode() == 200) {
-				goPluginServices.setSettings(new Gson().fromJson(response.responseBody(), OctaneGoCDPluginSettings.class));
+				OctaneGoCDPluginSettings settings = new Gson().fromJson(response.responseBody(), OctaneGoCDPluginSettings.class);
+				goPluginServices.setSettings(settings != null ? settings : new OctaneGoCDPluginSettings());
 			} else {
 				goPluginServices.setSettings(new OctaneGoCDPluginSettings());
 			}

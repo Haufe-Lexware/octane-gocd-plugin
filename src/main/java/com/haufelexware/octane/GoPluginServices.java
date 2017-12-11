@@ -79,7 +79,7 @@ public class GoPluginServices extends CIPluginServicesBase {
 
 	@Override
 	public CIPluginInfo getPluginInfo() {
-		return DTOFactory.getInstance().newDTO(CIPluginInfo.class).setVersion("1.0");
+		return DTOFactory.getInstance().newDTO(CIPluginInfo.class).setVersion("1.1");
 	}
 
 	@Override
@@ -93,7 +93,13 @@ public class GoPluginServices extends CIPluginServicesBase {
 
 	@Override
 	public OctaneConfiguration getOctaneConfiguration() {
-		int contextPathPosition = settings.getServerURL().indexOf("/ui");
+		if (settings == null) {
+			throw new IllegalArgumentException("No settings are given");
+		}
+		if (settings.getServerURL() == null) {
+			throw new IllegalArgumentException("No serverUrl is configured");
+		}
+		final int contextPathPosition = settings.getServerURL().indexOf("/ui");
 		if (contextPathPosition < 0) {
 			throw new IllegalArgumentException("URL does not conform to the expected format");
 		}
