@@ -1,4 +1,4 @@
-# HPE ALM Octane GoCD plugin ![Build State on Travis-CI](https://travis-ci.org/ralfhergert/octane-gocd-plugin.svg?branch=master)
+# HPE ALM Octane GoCD plugin ![Build State on Travis-CI](https://travis-ci.org/Haufe-Lexware/octane-gocd-plugin.svg?branch=master)
 This plugin integrates GoCD with HPE ALM Octane. Making GoCD pipelines accessible in HPE ALM Octane and allowing to
 analyze build quality and test results.
 
