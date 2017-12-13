@@ -13,15 +13,16 @@ This plugin has to be installed on your GoCD-server. Take the following steps:
     1. In GoCD open `Admin` and `Plugins`: you should see the *OctaneGoCDPlugin*. Click the cogwheel in front of it.
     2. Set the *Server URL* of your Octane server. This URL is supposed to look like
        `http://hostname:port/ui/?p=<SharedSpaceID>`.
-    3. Set the *Client ID* and *Client Secret*. These are the credentials on you Octane server the plugin should use.
+    3. Set the *Client ID* and *Client Secret*. These are the credentials on your Octane server the plugin should use.
     4. Set the *Go API Username* and *Go API Password*. These are the credentials the plugin uses to access the Go server.
-    5. When you try to save your settings, to connection to Octane is tested. If it works your settings will be saved.
+    5. When you try to save your settings, the connection to Octane is tested. Also the given credentials to the Go server
+	   API are given a try. If both work your settings will be saved, else validation warning will be shown.
 4. Now you should be able to add your GoCD server in Octane as a *CI Server*:
     1. In Octane click the cogwheel to enter the admin settings for your spaces.
     2. Open the tab `DevOps` and open the section `CI Servers`.
     3. Click the plus to add a new CI Server.
     4. You should be able to see your GoCD server in the dropdown list, select it and give it a speaking name. Save it.
-    5. Back in the overview of *CI Servers* you should now see server, with its *name*, *instance id*, *server type*,
+    5. Back in the overview of *CI Servers* you should now see your Go server, with its *name*, *instance id*, *server type*,
        *URL*, *connection status* and *SDK version*.
 
 When everything is set up correctly you can start adding pipelines in Octane.
@@ -38,8 +39,8 @@ This GoCD plugin exposes pipelines towards Octane.
 ### Test results
 In order to see test results of your pipelines in Octane. The plugin has to translate the test reports into Octane's
 data model. Therefor *xml-report-parsers* for *JUnit* and *NUnit* are integrated into this plugin. To allow the
-plugin to parse your xml-report-files, you have to declare them as artifacts of build. When a stage is finished the
-plugin will search all artifacts, and it will try to parse all xml files to see whether they are the result-file of
+plugin to parse your xml-report-files, you have to declare them as artifacts of build. Whenever a pipeline finishes the
+plugin will search all artifacts, and it will try to parse all xml files assuming they are the result-file of
 JUnit or NUnit. If successful the contained test results are transmitted to Octane.
 
 ### Triggering a pipeline to run
@@ -49,10 +50,10 @@ your GoCD server is displayed as type `unknown`, the feature *Run Pipeline* will
 
 ## Restrictions of this plugin
 This plugin allows your GoCD server to connect to exactly one Shared Space on exactly one ALM Octane instance. It is
-not possible to connect to multiple shared spaces or multiple ALM Octane instances.
+not possible to connect your GoCD server instance to multiple shared spaces or multiple ALM Octane instances.
 
 ## Bugs and Feature Requests
 The transmission of test results to Octane, especially the mapping into Octane's domain model is arbitrary. Please file
 an issue if you feel something is wrong with it. Also, if your project uses other test tools than JUnit or NUnit, then
-create a feature request and provided an example of your report file(s) allong with it. Technically every test tool can
-be used, as long as it generates some form of report-file.
+please create a feature request and provide an example of your report file(s) allong with it. Technically every test tool
+can be used, as long as it generates some sort of report-file.
