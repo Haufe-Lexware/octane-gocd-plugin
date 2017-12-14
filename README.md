@@ -7,7 +7,7 @@ This plugin requires GoCD to run in version 17.9 or higher.
 
 ## How to install
 This plugin has to be installed on your GoCD-server. Take the following steps:
-1. Download the jar-file of this plugin and store it on our go-server in `<go-server-directory>/plugins/external/`.
+1. Download the jar-file of this plugin and store it on your go-server in `<go-server-directory>/plugins/external/`.
 2. Restart your GoCD-server.
 3. You now need to configure the plugin to tell against which HPE ALM Octane server it should connect:
     1. In GoCD open `Admin` and `Plugins`: you should see the *OctaneGoCDPlugin*. Click the cogwheel in front of it.
