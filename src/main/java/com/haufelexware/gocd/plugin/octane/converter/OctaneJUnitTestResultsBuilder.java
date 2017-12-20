@@ -61,13 +61,13 @@ public class OctaneJUnitTestResultsBuilder {
 			}
 			for (JUnitTestCase testCase : testCases) {
 				testResults.add(DTOFactory.getInstance().newDTO(TestRun.class)
-					//.setClassName(testCase.getClassName())
-					.setDuration((long)(testCase.getTime() * 1000))
+					.setModuleName(testSuite.getName())
+					.setPackageName(extractPackageName(testCase.getClassName()))
+					.setClassName(extractSimpleClassName(testCase.getClassName()))
 					.setTestName(testCase.getName())
+					.setDuration((long)(testCase.getTime() * 1000))
 					.setStarted(startTime)
 					.setResult(convert(testCase))
-					//.setModuleName(testSuite.getName())
-					.setPackageName(extractPackageName(testSuite.getName()))
 					.setError(extractTestRunError(testCase)));
 			}
 		}
@@ -87,6 +87,11 @@ public class OctaneJUnitTestResultsBuilder {
 	public static String extractPackageName(String className) {
 		int index = className.lastIndexOf(".");
 		return index > -1 ? className.substring(0, index) : className;
+	}
+
+	public static String extractSimpleClassName(String className) {
+		int index = className.lastIndexOf(".");
+		return index > -1 ? className.substring(index + 1) : className;
 	}
 
 	public static TestRunError extractTestRunError(JUnitTestCase testCase) {

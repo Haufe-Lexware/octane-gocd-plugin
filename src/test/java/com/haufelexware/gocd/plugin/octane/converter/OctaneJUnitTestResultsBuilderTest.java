@@ -17,5 +17,10 @@ public class OctaneJUnitTestResultsBuilderTest {
 		final List<TestRun> tests = OctaneJUnitTestResultsBuilder.convert(getClass().getClassLoader().getResourceAsStream("junit.testResults.xml"));
 		Assert.assertNotNull("tests should not be null", tests);
 		Assert.assertEquals("number of tests", 3, tests.size());
+		TestRun testRun = tests.get(0);
+		Assert.assertEquals("package name", "com.haufelexware.report.junit", testRun.getPackageName());
+		Assert.assertEquals("class name", "JUnitReportParserTest", testRun.getClassName());
+		Assert.assertEquals("test name", "testComparison", testRun.getTestName());
+
 	}
 }

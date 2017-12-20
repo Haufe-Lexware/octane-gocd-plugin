@@ -60,12 +60,14 @@ public class OctaneNUnitTestResultsBuilder {
 				startTime = new Date().getTime();
 			}
 			for (NUnitTestCase testCase : testCases) {
+				final String fullyQualifiedClassName = extractFullyQualifiedClassName(testCase.getName());
 				testRuns.add(DTOFactory.getInstance().newDTO(TestRun.class)
-					.setTestName(testCase.getName())
+					.setPackageName(extractPackageName(fullyQualifiedClassName))
+					.setClassName(extractSimpleClassName(fullyQualifiedClassName))
+					.setTestName(extractTestName(testCase.getName()))
 					.setDuration((long)(testCase.getTime() * 1000))
 					.setStarted(startTime)
 					.setResult(convert(testCase))
-					.setPackageName(extractPackageName(testCase.getName()))
 					.setError(extractTestRunError(testCase)));
 			}
 		}
@@ -82,9 +84,24 @@ public class OctaneNUnitTestResultsBuilder {
 		}
 	}
 
-	public static String extractPackageName(String className) {
-		int index = className.lastIndexOf(".");
-		return index > -1 ? className.substring(0, index) : className;
+	public static String extractFullyQualifiedClassName(String testCaseName) {
+		int index = testCaseName.lastIndexOf(".");
+		return index > -1 ? testCaseName.substring(0, index) : testCaseName;
+	}
+
+	public static String extractSimpleClassName(String fullyQualifiedClassName) {
+		int index = fullyQualifiedClassName.lastIndexOf(".");
+		return index > -1 ? fullyQualifiedClassName.substring(index + 1) : fullyQualifiedClassName;
+	}
+
+	public static String extractPackageName(String fullyQualifiedClassName) {
+		int index = fullyQualifiedClassName.lastIndexOf(".");
+		return index > -1 ? fullyQualifiedClassName.substring(0, index) : fullyQualifiedClassName;
+	}
+
+	public static String extractTestName(String testCaseName) {
+		int index = testCaseName.lastIndexOf(".");
+		return index > -1 ? testCaseName.substring(index + 1) : testCaseName;
 	}
 
 	public static TestRunError extractTestRunError(NUnitTestCase testCase) {

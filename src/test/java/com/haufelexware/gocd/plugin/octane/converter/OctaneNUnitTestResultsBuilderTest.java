@@ -17,5 +17,9 @@ public class OctaneNUnitTestResultsBuilderTest {
 		final List<TestRun> tests = OctaneNUnitTestResultsBuilder.convert(getClass().getClassLoader().getResourceAsStream("nunit.testResults.xml"));
 		Assert.assertNotNull("tests should not be null", tests);
 		Assert.assertEquals("number of tests", 6, tests.size());
+		TestRun testRun = tests.get(0);
+		Assert.assertEquals("package name", "Haufe.PT.DataGeneration.Tests", testRun.getPackageName());
+		Assert.assertEquals("class name", "CommandLineOptionsTests", testRun.getClassName());
+		Assert.assertEquals("test name", "TestParseGenerators_MultipleGenerators_OneIncorrect", testRun.getTestName());
 	}
 }
