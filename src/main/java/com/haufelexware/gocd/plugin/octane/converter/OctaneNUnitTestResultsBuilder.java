@@ -38,30 +38,36 @@ public class OctaneNUnitTestResultsBuilder {
 	public List<TestRun> convert(String artifactUrl) {
 		final List<TestRun> testRuns = new ArrayList<>();
 		try (InputStream report = new GoGetArtifact(goApiClient).get(artifactUrl)) { // try to parse the given artifact as JUnit report file.
-			NUnitTestResults testResults = new NUnitReportParser().parseFrom(report);
-			if (testResults != null && testResults.getTestSuite() != null) {
-				List<NUnitTestCase> testCases = testResults.getTestSuite().getAllTestCases();
-				long startTime;
-				try {
-					startTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(testResults.getDate() + "T" + testResults.getTime()).getTime();
-				} catch (ParseException e) {
-					Log.warn("Could not parse timestamp '" + testResults.getDate() + "T" + testResults.getTime() + "' using current timestamp instead");
-					startTime = new Date().getTime();
-				}
-				for (NUnitTestCase testCase : testCases) {
-					testRuns.add(DTOFactory.getInstance().newDTO(TestRun.class)
-						.setTestName(testCase.getName())
-						.setDuration((long)(testCase.getTime() * 1000))
-						.setStarted(startTime)
-						.setResult(convert(testCase))
-						.setPackageName(extractPackageName(testCase.getName()))
-						.setError(extractTestRunError(testCase)));
-				}
-			}
+			return convert(report);
 		} catch (JAXBException e) {
 			Log.info("parsing artifact '" + artifactUrl + "' as NUnit report failed");
 		} catch (IOException e) {
 			Log.error("could not read artifact '" + artifactUrl + "' from server", e);
+		}
+		return testRuns;
+	}
+
+	public static List<TestRun> convert(InputStream artifactStream) throws JAXBException {
+		final List<TestRun> testRuns = new ArrayList<>();
+		NUnitTestResults testResults = new NUnitReportParser().parseFrom(artifactStream);
+		if (testResults != null && testResults.getTestSuite() != null) {
+			List<NUnitTestCase> testCases = testResults.getTestSuite().getAllTestCases();
+			long startTime;
+			try {
+				startTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(testResults.getDate() + "T" + testResults.getTime()).getTime();
+			} catch (ParseException e) {
+				Log.warn("Could not parse timestamp '" + testResults.getDate() + "T" + testResults.getTime() + "' using current timestamp instead");
+				startTime = new Date().getTime();
+			}
+			for (NUnitTestCase testCase : testCases) {
+				testRuns.add(DTOFactory.getInstance().newDTO(TestRun.class)
+					.setTestName(testCase.getName())
+					.setDuration((long)(testCase.getTime() * 1000))
+					.setStarted(startTime)
+					.setResult(convert(testCase))
+					.setPackageName(extractPackageName(testCase.getName()))
+					.setError(extractTestRunError(testCase)));
+			}
 		}
 		return testRuns;
 	}
