@@ -39,7 +39,7 @@ public class OctaneNUnitTestResultsBuilder {
 		final List<TestRun> testRuns = new ArrayList<>();
 		try (InputStream report = new GoGetArtifact(goApiClient).get(artifactUrl)) { // try to parse the given artifact as JUnit report file.
 			NUnitTestResults testResults = new NUnitReportParser().parseFrom(report);
-			if (testResults != null && testResults.getTestSuite() == null) {
+			if (testResults != null && testResults.getTestSuite() != null) {
 				List<NUnitTestCase> testCases = testResults.getTestSuite().getAllTestCases();
 				long startTime;
 				try {
