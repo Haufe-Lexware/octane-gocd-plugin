@@ -59,7 +59,7 @@ public class OctaneNUnitTestResultsBuilder {
 				}
 			}
 		} catch (JAXBException e) {
-			Log.info("parsing xml file as NUnit report failed");
+			Log.info("parsing artifact '" + artifactUrl + "' as NUnit report failed");
 		} catch (IOException e) {
 			Log.error("could not read artifact '" + artifactUrl + "' from server", e);
 		}
