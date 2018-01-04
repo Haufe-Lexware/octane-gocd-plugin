@@ -86,7 +86,7 @@ public class GoPluginServices extends CIPluginServicesBase {
 	public CIServerInfo getServerInfo() {
 		return DTOFactory.getInstance().newDTO(CIServerInfo.class)
 			.setUrl(goServerURL)
-			.setType(CIServerTypes.UNKNOWN) // TODO change into CIServerTypes.GoCD as soon as available.
+			.setType(CIServerTypes.GOCD.value())
 			.setSendingTime(System.currentTimeMillis())
 			.setInstanceId(goServerID);
 	}
