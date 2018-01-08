@@ -45,6 +45,7 @@ public class OctaneTestResultsBuilder {
 		final List<TestRun> testResults = new ArrayList<>();
 		testResults.addAll(new OctaneJUnitTestResultsBuilder(goApiClient).convert(artifact.getUrl()));
 		testResults.addAll(new OctaneNUnit25TestResultsBuilder(goApiClient).convert(artifact.getUrl()));
+		testResults.addAll(new OctaneNUnit30TestResultsBuilder(goApiClient).convert(artifact.getUrl()));
 		return testResults;
 	}
 }

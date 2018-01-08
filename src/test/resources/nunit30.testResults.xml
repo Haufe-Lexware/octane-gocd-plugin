@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-run id="2" testcasecount="27" result="Skipped" label="Ignored" total="27" passed="23" failed="0" inconclusive="0" skipped="4" asserts="39" engine-version="3.6.0.0" clr-version="4.0.30319.42000" start-time="2018-01-05 10:21:30Z" end-time="2018-01-05 10:25:40Z" duration="250.108435">
+  <command-line><![CDATA["C:\nunit\nunit3-console.exe" \go\pipelines\TOP-4230-pt_systemtests_dev\Tests\TestDlls\AP.Tests.dll \go\pipelines\TOP-4230-pt_systemtests_dev\Tests\TestDlls\AR.Tests.dll \go\pipelines\TOP-4230-pt_systemtests_dev\Tests\TestDlls\TestDatBuilder.Tests.dll --process=Single --result=SystemApi.Tests.xml --work=TestResult --workers=1]]></command-line>
+  <test-suite type="Assembly" id="1-1034" name="AP.Tests.dll" fullname="go\pipelines\TOP-4230-pt_systemtests_dev\Tests\TestDlls\AP.Tests.dll" runstate="Runnable" testcasecount="23" result="Skipped" label="Ignored" start-time="2018-01-05 10:21:31Z" end-time="2018-01-05 10:25:29Z" duration="238.484592" total="23" passed="21" failed="0" warnings="0" inconclusive="0" skipped="2" asserts="37">
+    <environment framework-version="3.9.0.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 10.0.14393.0" platform="Win32NT" cwd="\go\pipelines\TOP-4230-pt_systemtests_dev\Tests\TestDlls" machine-name="ACME" user="donald" user-domain="topsecret" culture="en-US" uiculture="en-US" os-architecture="x64" />
+    <settings>
+      <setting name="ProcessModel" value="InProcess" />
+      <setting name="DisposeRunners" value="True" />
+      <setting name="WorkDirectory" value="TestResult" />
+      <setting name="NumberOfTestWorkers" value="1" />
+      <setting name="ImageRuntimeVersion" value="4.0.30319" />
+      <setting name="ImageTargetFrameworkName" value=".NETFramework,Version=v4.7" />
+      <setting name="ImageRequiresX86" value="False" />
+      <setting name="ImageRequiresDefaultAppDomainAssemblyResolver" value="False" />
+    </settings>
+    <properties>
+      <property name="_PID" value="4740" />
+      <property name="_APPDOMAIN" value="domain-5cf56de6-AP.Tests.dll" />
+    </properties>
+    <reason>
+      <message><![CDATA[One or more child tests were ignored]]></message>
+    </reason>
+    <test-suite type="TestSuite" id="1-1035" name="Haufe" fullname="Haufe" runstate="Runnable" testcasecount="23" result="Skipped" label="Ignored" start-time="2018-01-05 10:21:31Z" end-time="2018-01-05 10:25:29Z" duration="238.457196" total="23" passed="21" failed="0" warnings="0" inconclusive="0" skipped="2" asserts="37">
+      <reason>
+        <message><![CDATA[One or more child tests were ignored]]></message>
+      </reason>
+      <test-suite type="TestSuite" id="1-1036" name="PT" fullname="Haufe.PT" runstate="Runnable" testcasecount="23" result="Skipped" label="Ignored" start-time="2018-01-05 10:21:31Z" end-time="2018-01-05 10:25:29Z" duration="238.456092" total="23" passed="21" failed="0" warnings="0" inconclusive="0" skipped="2" asserts="37">
+        <reason>
+          <message><![CDATA[One or more child tests were ignored]]></message>
+        </reason>
+        <test-suite type="TestSuite" id="1-1037" name="Api" fullname="Haufe.PT.Api" runstate="Runnable" testcasecount="23" result="Skipped" label="Ignored" start-time="2018-01-05 10:21:31Z" end-time="2018-01-05 10:25:29Z" duration="238.456076" total="23" passed="21" failed="0" warnings="0" inconclusive="0" skipped="2" asserts="37">
+          <reason>
+            <message><![CDATA[One or more child tests were ignored]]></message>
+          </reason>
+          <test-suite type="TestSuite" id="1-1038" name="SystemTests" fullname="Haufe.PT.Api.SystemTests" runstate="Runnable" testcasecount="23" result="Skipped" label="Ignored" start-time="2018-01-05 10:21:31Z" end-time="2018-01-05 10:25:29Z" duration="238.456066" total="23" passed="21" failed="0" warnings="0" inconclusive="0" skipped="2" asserts="37">
+            <reason>
+              <message><![CDATA[One or more child tests were ignored]]></message>
+            </reason>
+            <test-suite type="TestSuite" id="1-1039" name="AP" fullname="Haufe.PT.Api.SystemTests.AP" runstate="Runnable" testcasecount="23" result="Skipped" label="Ignored" start-time="2018-01-05 10:21:31Z" end-time="2018-01-05 10:25:29Z" duration="238.456042" total="23" passed="21" failed="0" warnings="0" inconclusive="0" skipped="2" asserts="37">
+              <reason>
+                <message><![CDATA[One or more child tests were ignored]]></message>
+              </reason>
+              <test-suite type="SetUpFixture" id="1-1000" name="Tests" fullname="Haufe.PT.Api.SystemTests.AP.Tests.Initialize" classname="Haufe.PT.Api.SystemTests.AP.Tests.Initialize" runstate="Runnable" testcasecount="23" result="Skipped" label="Ignored" start-time="2018-01-05 10:21:31Z" end-time="2018-01-05 10:25:29Z" duration="238.451778" total="23" passed="21" failed="0" warnings="0" inconclusive="0" skipped="2" asserts="37">
+                <reason>
+                  <message><![CDATA[One or more child tests were ignored]]></message>
+                </reason>
+                <output><![CDATA[Starting Builder for [FinancialPeriodsTestDataBuilder]
+Starting Builder for [PostingClassDataBuilder]
+Starting Builder for [PostingAccountsMappingBuilder]
+Starting Builder for [StockItemDataBuilder]
+Starting Builder for [NonStockItemDataBuilder]
+Starting Builder for [VendorDataBuilder]
+Starting Builder for [TaxesTestDataBuilder]
+Starting Builder for [PreferenceTestDataBuilder]
+Starting Builder for [VendorTradeDiscountTestDataBuiler]
+Starting Builder for [CustomerTestDataBuilder]
+Data builder finished !!
+]]></output>
+                <test-suite type="TestFixture" id="1-1001" name="JournalTransactionTests" fullname="Haufe.PT.Api.SystemTests.AP.Tests.JournalTransactionTests" classname="Haufe.PT.Api.SystemTests.AP.Tests.JournalTransactionTests" runstate="Runnable" testcasecount="6" result="Skipped" label="Ignored" start-time="2018-01-05 10:22:26Z" end-time="2018-01-05 10:24:01Z" duration="95.285364" total="6" passed="4" failed="0" warnings="0" inconclusive="0" skipped="2" asserts="8">
+                  <reason>
+                    <message><![CDATA[One or more child tests were ignored]]></message>
+                  </reason>
+                  <test-suite type="ParameterizedMethod" id="1-1007" name="GlEntries_ForNonStockItemsWithNoOtherDiscountInPurchaseOrdder_CorrectAccountsArePostedToGl" fullname="Haufe.PT.Api.SystemTests.AP.Tests.JournalTransactionTests.GlEntries_ForNonStockItemsWithNoOtherDiscountInPurchaseOrdder_CorrectAccountsArePostedToGl" classname="Haufe.PT.Api.SystemTests.AP.Tests.JournalTransactionTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2018-01-05 10:22:26Z" end-time="2018-01-05 10:23:16Z" duration="50.162198" total="2" passed="2" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="4">
+                    <test-case id="1-1005" name="GlEntries_ForNonStockItemsWithNoOtherDiscountInPurchaseOrdder_CorrectAccountsArePostedToGl(&quot;INLAND&quot;)" fullname="Haufe.PT.Api.SystemTests.AP.Tests.JournalTransactionTests.GlEntries_ForNonStockItemsWithNoOtherDiscountInPurchaseOrdder_CorrectAccountsArePostedToGl(&quot;INLAND&quot;)" methodname="GlEntries_ForNonStockItemsWithNoOtherDiscountInPurchaseOrdder_CorrectAccountsArePostedToGl" classname="Haufe.PT.Api.SystemTests.AP.Tests.JournalTransactionTests" runstate="Runnable" seed="1230714742" result="Passed" start-time="2018-01-05 10:22:26Z" end-time="2018-01-05 10:23:01Z" duration="34.922002" asserts="2">
+                      <properties>
+                        <property name="Category" value="End2End" />
+                      </properties>
+                      <output><![CDATA[Purchase Order : BE00000029
+AP Bill: ER00000029
+]]></output>
+                    </test-case>
+                    <test-case id="1-1006" name="GlEntries_ForNonStockItemsWithNoOtherDiscountInPurchaseOrdder_CorrectAccountsArePostedToGl(&quot;EU&quot;)" fullname="Haufe.PT.Api.SystemTests.AP.Tests.JournalTransactionTests.GlEntries_ForNonStockItemsWithNoOtherDiscountInPurchaseOrdder_CorrectAccountsArePostedToGl(&quot;EU&quot;)" methodname="GlEntries_ForNonStockItemsWithNoOtherDiscountInPurchaseOrdder_CorrectAccountsArePostedToGl" classname="Haufe.PT.Api.SystemTests.AP.Tests.JournalTransactionTests" runstate="Runnable" seed="774859926" result="Passed" start-time="2018-01-05 10:23:01Z" end-time="2018-01-05 10:23:16Z" duration="15.230487" asserts="2">
+                      <properties>
+                        <property name="Category" value="End2End" />
+                      </properties>
+                      <output><![CDATA[Purchase Order : BE00000030
+AP Bill: ER00000030
+]]></output>
+                    </test-case>
+                  </test-suite>
+                  <test-suite type="ParameterizedMethod" id="1-1010" name="GlEntries_ForVendorWithDocumentDiscountAndInventoryItemsInPurchaseOrder_CorrectAccountsArePostedToGlForTradeDiscount" fullname="Haufe.PT.Api.SystemTests.AP.Tests.JournalTransactionTests.GlEntries_ForVendorWithDocumentDiscountAndInventoryItemsInPurchaseOrder_CorrectAccountsArePostedToGlForTradeDiscount" classname="Haufe.PT.Api.SystemTests.AP.Tests.JournalTransactionTests" runstate="Ignored" testcasecount="2" result="Skipped" label="Ignored" site="SetUp" start-time="2018-01-05 10:23:16Z" end-time="2018-01-05 10:23:16Z" duration="0.002050" total="2" passed="0" failed="0" warnings="0" inconclusive="0" skipped="2" asserts="0">
+                    <properties>
+                      <property name="_SKIPREASON" value="We need minor change on Acumatica side to enable this test" />
+                    </properties>
+                    <reason>
+                      <message><![CDATA[We need minor change on Acumatica side to enable this test]]></message>
+                    </reason>
+                    <test-case id="1-1008" name="GlEntries_ForVendorWithDocumentDiscountAndInventoryItemsInPurchaseOrder_CorrectAccountsArePostedToGlForTradeDiscount(&quot;INLAND&quot;)" fullname="Haufe.PT.Api.SystemTests.AP.Tests.JournalTransactionTests.GlEntries_ForVendorWithDocumentDiscountAndInventoryItemsInPurchaseOrder_CorrectAccountsArePostedToGlForTradeDiscount(&quot;INLAND&quot;)" methodname="GlEntries_ForVendorWithDocumentDiscountAndInventoryItemsInPurchaseOrder_CorrectAccountsArePostedToGlForTradeDiscount" classname="Haufe.PT.Api.SystemTests.AP.Tests.JournalTransactionTests" runstate="Runnable" seed="1459778141" result="Skipped" label="Ignored" site="Parent" start-time="0001-01-01 00:00:00Z" end-time="0001-01-01 00:00:00Z" duration="0.000000" asserts="0">
+                      <properties>
+                        <property name="Category" value="End2End" />
+                      </properties>
+                      <reason>
+                        <message><![CDATA[OneTimeSetUp: We need minor change on Acumatica side to enable this test]]></message>
+                      </reason>
+                    </test-case>
+                    <test-case id="1-1009" name="GlEntries_ForVendorWithDocumentDiscountAndInventoryItemsInPurchaseOrder_CorrectAccountsArePostedToGlForTradeDiscount(&quot;EU&quot;)" fullname="Haufe.PT.Api.SystemTests.AP.Tests.JournalTransactionTests.GlEntries_ForVendorWithDocumentDiscountAndInventoryItemsInPurchaseOrder_CorrectAccountsArePostedToGlForTradeDiscount(&quot;EU&quot;)" methodname="GlEntries_ForVendorWithDocumentDiscountAndInventoryItemsInPurchaseOrder_CorrectAccountsArePostedToGlForTradeDiscount" classname="Haufe.PT.Api.SystemTests.AP.Tests.JournalTransactionTests" runstate="Runnable" seed="698199654" result="Skipped" label="Ignored" site="Parent" start-time="0001-01-01 00:00:00Z" end-time="0001-01-01 00:00:00Z" duration="0.000000" asserts="0">
+                      <properties>
+                        <property name="Category" value="End2End" />
+                      </properties>
+                      <reason>
+                        <message><![CDATA[OneTimeSetUp: We need minor change on Acumatica side to enable this test]]></message>
+                      </reason>
+                    </test-case>
+                  </test-suite>
+                  <test-suite type="ParameterizedMethod" id="1-1004" name="GlEntries_WithStockItemsWithNoCashDiscount_GlEntriesArePostedWithCorrectAccount" fullname="Haufe.PT.Api.SystemTests.AP.Tests.JournalTransactionTests.GlEntries_WithStockItemsWithNoCashDiscount_GlEntriesArePostedWithCorrectAccount" classname="Haufe.PT.Api.SystemTests.AP.Tests.JournalTransactionTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2018-01-05 10:23:16Z" end-time="2018-01-05 10:24:01Z" duration="45.118141" total="2" passed="2" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="4">
+                    <test-case id="1-1002" name="GlEntries_WithStockItemsWithNoCashDiscount_GlEntriesArePostedWithCorrectAccount(&quot;INLAND&quot;)" fullname="Haufe.PT.Api.SystemTests.AP.Tests.JournalTransactionTests.GlEntries_WithStockItemsWithNoCashDiscount_GlEntriesArePostedWithCorrectAccount(&quot;INLAND&quot;)" methodname="GlEntries_WithStockItemsWithNoCashDiscount_GlEntriesArePostedWithCorrectAccount" classname="Haufe.PT.Api.SystemTests.AP.Tests.JournalTransactionTests" runstate="Runnable" seed="911590886" result="Passed" start-time="2018-01-05 10:23:16Z" end-time="2018-01-05 10:23:40Z" duration="24.435117" asserts="2">
+                      <properties>
+                        <property name="Category" value="End2End" />
+                      </properties>
+                      <output><![CDATA[Purchase Order : BE00000031
+Purchase Receipt : EL00000015
+AP Bill: ER00000031
+]]></output>
+                    </test-case>
+                    <test-case id="1-1003" name="GlEntries_WithStockItemsWithNoCashDiscount_GlEntriesArePostedWithCorrectAccount(&quot;EU&quot;)" fullname="Haufe.PT.Api.SystemTests.AP.Tests.JournalTransactionTests.GlEntries_WithStockItemsWithNoCashDiscount_GlEntriesArePostedWithCorrectAccount(&quot;EU&quot;)" methodname="GlEntries_WithStockItemsWithNoCashDiscount_GlEntriesArePostedWithCorrectAccount" classname="Haufe.PT.Api.SystemTests.AP.Tests.JournalTransactionTests" runstate="Runnable" seed="230943825" result="Passed" start-time="2018-01-05 10:23:40Z" end-time="2018-01-05 10:24:01Z" duration="20.682877" asserts="2">
+                      <properties>
+                        <property name="Category" value="End2End" />
+                      </properties>
+                      <output><![CDATA[Purchase Order : BE00000032
+Purchase Receipt : EL00000016
+AP Bill: ER00000032
+]]></output>
+                    </test-case>
+                  </test-suite>
+                </test-suite>
+                <test-suite type="TestSuite" id="1-1041" name="NonStockItemsTests" fullname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests" runstate="Runnable" testcasecount="17" result="Passed" start-time="2018-01-05 10:22:26Z" end-time="2018-01-05 10:25:29Z" duration="183.353629" total="17" passed="17" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="29">
+                  <test-suite type="TestFixture" id="1-1028" name="BillAndAdjusmentAccountsOverriddenInPoTests" fullname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillAndAdjusmentAccountsOverriddenInPoTests" classname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillAndAdjusmentAccountsOverriddenInPoTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2018-01-05 10:24:01Z" end-time="2018-01-05 10:24:42Z" duration="41.243670" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="5">
+                    <test-case id="1-1029" name="NonStockItemWithNormalAccount_OverriddenInPurchaseOrder_AreMaintainedInBill" fullname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillAndAdjusmentAccountsOverriddenInPoTests.NonStockItemWithNormalAccount_OverriddenInPurchaseOrder_AreMaintainedInBill" methodname="NonStockItemWithNormalAccount_OverriddenInPurchaseOrder_AreMaintainedInBill" classname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillAndAdjusmentAccountsOverriddenInPoTests" runstate="Runnable" seed="237292499" result="Passed" start-time="2018-01-05 10:24:01Z" end-time="2018-01-05 10:24:09Z" duration="7.832837" asserts="1">
+                      <properties>
+                        <property name="Category" value="Level2" />
+                      </properties>
+                      <output><![CDATA[Purchase Order : BE00000033
+AP Bill: ER00000033
+]]></output>
+                    </test-case>
+                    <test-case id="1-1030" name="NonStockItemWithPamAccount_OverriddenInPurchaseOrder_AreMaintainedInBill" fullname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillAndAdjusmentAccountsOverriddenInPoTests.NonStockItemWithPamAccount_OverriddenInPurchaseOrder_AreMaintainedInBill" methodname="NonStockItemWithPamAccount_OverriddenInPurchaseOrder_AreMaintainedInBill" classname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillAndAdjusmentAccountsOverriddenInPoTests" runstate="Runnable" seed="1124743642" result="Passed" start-time="2018-01-05 10:24:09Z" end-time="2018-01-05 10:24:17Z" duration="7.796548" asserts="1">
+                      <properties>
+                        <property name="Category" value="Level2" />
+                      </properties>
+                      <output><![CDATA[Purchase Order : BE00000034
+AP Bill: ER00000034
+]]></output>
+                    </test-case>
+                    <test-case id="1-1032" name="NonStockItemWithPamAccount_OverriddenInPurchaseOrderAndTaxCategoryChanged_DefaultedToValueInPam" fullname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillAndAdjusmentAccountsOverriddenInPoTests.NonStockItemWithPamAccount_OverriddenInPurchaseOrderAndTaxCategoryChanged_DefaultedToValueInPam" methodname="NonStockItemWithPamAccount_OverriddenInPurchaseOrderAndTaxCategoryChanged_DefaultedToValueInPam" classname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillAndAdjusmentAccountsOverriddenInPoTests" runstate="Runnable" seed="1191591023" result="Passed" start-time="2018-01-05 10:24:17Z" end-time="2018-01-05 10:24:25Z" duration="8.632811" asserts="1">
+                      <properties>
+                        <property name="Category" value="Level2" />
+                      </properties>
+                      <output><![CDATA[Purchase Order : BE00000035
+AP Bill: ER00000035
+]]></output>
+                    </test-case>
+                    <test-case id="1-1033" name="NonStockItemWithPamSetting_OverriddenInPurchaseOrderAndTaxCategoryChangedTwice_DefaultedToValueInPam" fullname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillAndAdjusmentAccountsOverriddenInPoTests.NonStockItemWithPamSetting_OverriddenInPurchaseOrderAndTaxCategoryChangedTwice_DefaultedToValueInPam" methodname="NonStockItemWithPamSetting_OverriddenInPurchaseOrderAndTaxCategoryChangedTwice_DefaultedToValueInPam" classname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillAndAdjusmentAccountsOverriddenInPoTests" runstate="Runnable" seed="95013417" result="Passed" start-time="2018-01-05 10:24:25Z" end-time="2018-01-05 10:24:35Z" duration="9.264848" asserts="1">
+                      <properties>
+                        <property name="Category" value="Level2" />
+                      </properties>
+                      <output><![CDATA[Purchase Order : BE00000036
+AP Bill: ER00000036
+]]></output>
+                    </test-case>
+                    <test-case id="1-1031" name="NonStockItemWithPcAccount_OverriddenInPurchaseOrder_AreMaintainedInBill" fullname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillAndAdjusmentAccountsOverriddenInPoTests.NonStockItemWithPcAccount_OverriddenInPurchaseOrder_AreMaintainedInBill" methodname="NonStockItemWithPcAccount_OverriddenInPurchaseOrder_AreMaintainedInBill" classname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillAndAdjusmentAccountsOverriddenInPoTests" runstate="Runnable" seed="2074697316" result="Passed" start-time="2018-01-05 10:24:35Z" end-time="2018-01-05 10:24:42Z" duration="7.716150" asserts="1">
+                      <properties>
+                        <property name="Category" value="Level2" />
+                      </properties>
+                      <output><![CDATA[Purchase Order : BE00000037
+AP Bill: ER00000037
+]]></output>
+                    </test-case>
+                  </test-suite>
+                  <test-suite type="TestFixture" id="1-1011" name="BillsAndAdjustmentDefaultingTests" fullname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillsAndAdjustmentDefaultingTests" classname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillsAndAdjustmentDefaultingTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2018-01-05 10:24:42Z" end-time="2018-01-05 10:25:11Z" duration="29.056087" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="11">
+                    <test-case id="1-1012" name="NonStockItem_WithInventoryItemSetting_IsDefaultedWithAccountSpecifiedInInventoryItem" fullname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillsAndAdjustmentDefaultingTests.NonStockItem_WithInventoryItemSetting_IsDefaultedWithAccountSpecifiedInInventoryItem" methodname="NonStockItem_WithInventoryItemSetting_IsDefaultedWithAccountSpecifiedInInventoryItem" classname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillsAndAdjustmentDefaultingTests" runstate="Runnable" seed="612574252" result="Passed" start-time="2018-01-05 10:24:42Z" end-time="2018-01-05 10:24:44Z" duration="2.109053" asserts="1">
+                      <properties>
+                        <property name="Category" value="Level1" />
+                        <property name="Description" value="Non-Stock item having Inventory Item setting in Posting Class, is defaultedwith an account specified in non-stock item's -&gt; GL Accounts -&gt; Expense Account" />
+                      </properties>
+                      <output><![CDATA[AP Bill: ER00000038
+]]></output>
+                    </test-case>
+                    <test-case id="1-1013" name="NonStockItem_WithPamPostingClassSetting_IsDefaultedWithAccountSpecifiedInPam" fullname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillsAndAdjustmentDefaultingTests.NonStockItem_WithPamPostingClassSetting_IsDefaultedWithAccountSpecifiedInPam" methodname="NonStockItem_WithPamPostingClassSetting_IsDefaultedWithAccountSpecifiedInPam" classname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillsAndAdjustmentDefaultingTests" runstate="Runnable" seed="99795965" result="Passed" start-time="2018-01-05 10:24:44Z" end-time="2018-01-05 10:24:47Z" duration="2.090202" asserts="1">
+                      <properties>
+                        <property name="Category" value="Level1" />
+                        <property name="Description" value="Non-Stock item having PAM setting in posting classs, is Defaulted with an accountspecified in Posting Account mapping table" />
+                      </properties>
+                      <output><![CDATA[AP Bill: ER00000039
+]]></output>
+                    </test-case>
+                    <test-suite type="ParameterizedMethod" id="1-1017" name="StockItem_IsDefaultedWithAccountSpecifiedInPam" fullname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillsAndAdjustmentDefaultingTests.StockItem_IsDefaultedWithAccountSpecifiedInPam" classname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillsAndAdjustmentDefaultingTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2018-01-05 10:24:47Z" end-time="2018-01-05 10:25:11Z" duration="24.856319" total="3" passed="3" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="9">
+                      <properties>
+                        <property name="Category" value="Level1" />
+                        <property name="Description" value="Stock items is Defaulted with an account specified in Posting Account mapping table. verifying all taxcategories and taxzones" />
+                      </properties>
+                      <test-case id="1-1014" name="StockItem_IsDefaultedWithAccountSpecifiedInPam(&quot;INLAND&quot;)" fullname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillsAndAdjustmentDefaultingTests.StockItem_IsDefaultedWithAccountSpecifiedInPam(&quot;INLAND&quot;)" methodname="StockItem_IsDefaultedWithAccountSpecifiedInPam" classname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillsAndAdjustmentDefaultingTests" runstate="Runnable" seed="1920463993" result="Passed" start-time="2018-01-05 10:24:47Z" end-time="2018-01-05 10:24:55Z" duration="8.207199" asserts="3">
+                        <output><![CDATA[Purchase Receipt : EL00000017
+AP Bill: ER00000040
+]]></output>
+                      </test-case>
+                      <test-case id="1-1015" name="StockItem_IsDefaultedWithAccountSpecifiedInPam(&quot;EU&quot;)" fullname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillsAndAdjustmentDefaultingTests.StockItem_IsDefaultedWithAccountSpecifiedInPam(&quot;EU&quot;)" methodname="StockItem_IsDefaultedWithAccountSpecifiedInPam" classname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillsAndAdjustmentDefaultingTests" runstate="Runnable" seed="1407222482" result="Passed" start-time="2018-01-05 10:24:55Z" end-time="2018-01-05 10:25:03Z" duration="8.570433" asserts="3">
+                        <output><![CDATA[Purchase Receipt : EL00000018
+AP Bill: ER00000041
+]]></output>
+                      </test-case>
+                      <test-case id="1-1016" name="StockItem_IsDefaultedWithAccountSpecifiedInPam(&quot;DRITTLAND&quot;)" fullname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillsAndAdjustmentDefaultingTests.StockItem_IsDefaultedWithAccountSpecifiedInPam(&quot;DRITTLAND&quot;)" methodname="StockItem_IsDefaultedWithAccountSpecifiedInPam" classname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.BillsAndAdjustmentDefaultingTests" runstate="Runnable" seed="282246257" result="Passed" start-time="2018-01-05 10:25:03Z" end-time="2018-01-05 10:25:11Z" duration="8.078497" asserts="3">
+                        <output><![CDATA[Purchase Receipt : EL00000019
+AP Bill: ER00000042
+]]></output>
+                      </test-case>
+                    </test-suite>
+                  </test-suite>
+                  <test-suite type="TestFixture" id="1-1018" name="PurchaseOrderDefaultingTests" fullname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.PurchaseOrderDefaultingTests" classname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.PurchaseOrderDefaultingTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2018-01-05 10:25:11Z" end-time="2018-01-05 10:25:24Z" duration="12.728308" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="11">
+                    <test-case id="1-1019" name="NonStockItem_WithInventoryItemSetting_IsDefaultedWithAccountSpecifiedInInventoryItem" fullname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.PurchaseOrderDefaultingTests.NonStockItem_WithInventoryItemSetting_IsDefaultedWithAccountSpecifiedInInventoryItem" methodname="NonStockItem_WithInventoryItemSetting_IsDefaultedWithAccountSpecifiedInInventoryItem" classname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.PurchaseOrderDefaultingTests" runstate="Runnable" seed="951495636" result="Passed" start-time="2018-01-05 10:25:11Z" end-time="2018-01-05 10:25:14Z" duration="2.328004" asserts="1">
+                      <properties>
+                        <property name="Category" value="Level1" />
+                        <property name="Description" value="Non-Stock item specified in Purchase order having standard posting class is defaulted to Expense account specified in Non-Stock Item -&gt;GL Accounts -&gt; Expense Account Field" />
+                      </properties>
+                      <output><![CDATA[Purchase Order : BE00000038
+]]></output>
+                    </test-case>
+                    <test-case id="1-1020" name="NonStockItem_WithPamPostingClassSetting_IsDefaultedWithAccountSpecifiedInPam" fullname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.PurchaseOrderDefaultingTests.NonStockItem_WithPamPostingClassSetting_IsDefaultedWithAccountSpecifiedInPam" methodname="NonStockItem_WithPamPostingClassSetting_IsDefaultedWithAccountSpecifiedInPam" classname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.PurchaseOrderDefaultingTests" runstate="Runnable" seed="980578775" result="Passed" start-time="2018-01-05 10:25:14Z" end-time="2018-01-05 10:25:16Z" duration="2.269978" asserts="1">
+                      <properties>
+                        <property name="Category" value="Level1" />
+                        <property name="Description" value="Non-Stock item specified in Purchase order having Posting Class mapped to PAM. The order line inside PO, is defaulted to the account specified in PAM -&gt; AP Purchase Account" />
+                      </properties>
+                      <output><![CDATA[Purchase Order : BE00000039
+]]></output>
+                    </test-case>
+                    <test-suite type="ParameterizedMethod" id="1-1024" name="StockItem_IsNotDefaultedAndEmpty" fullname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.PurchaseOrderDefaultingTests.StockItem_IsNotDefaultedAndEmpty" classname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.PurchaseOrderDefaultingTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2018-01-05 10:25:16Z" end-time="2018-01-05 10:25:24Z" duration="8.129635" total="3" passed="3" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="9">
+                      <properties>
+                        <property name="Category" value="Level1" />
+                        <property name="Description" value="Stock item specified in Purchase order are not defaulted and should be empty for all order lines. verifying all taxcategories and taxzones" />
+                      </properties>
+                      <test-case id="1-1021" name="StockItem_IsNotDefaultedAndEmpty(&quot;INLAND&quot;)" fullname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.PurchaseOrderDefaultingTests.StockItem_IsNotDefaultedAndEmpty(&quot;INLAND&quot;)" methodname="StockItem_IsNotDefaultedAndEmpty" classname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.PurchaseOrderDefaultingTests" runstate="Runnable" seed="1564378094" result="Passed" start-time="2018-01-05 10:25:16Z" end-time="2018-01-05 10:25:19Z" duration="2.714096" asserts="3">
+                        <output><![CDATA[Purchase Order : BE00000040
+]]></output>
+                      </test-case>
+                      <test-case id="1-1022" name="StockItem_IsNotDefaultedAndEmpty(&quot;EU&quot;)" fullname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.PurchaseOrderDefaultingTests.StockItem_IsNotDefaultedAndEmpty(&quot;EU&quot;)" methodname="StockItem_IsNotDefaultedAndEmpty" classname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.PurchaseOrderDefaultingTests" runstate="Runnable" seed="1643338504" result="Passed" start-time="2018-01-05 10:25:19Z" end-time="2018-01-05 10:25:22Z" duration="2.837155" asserts="3">
+                        <output><![CDATA[Purchase Order : BE00000041
+]]></output>
+                      </test-case>
+                      <test-case id="1-1023" name="StockItem_IsNotDefaultedAndEmpty(&quot;DRITTLAND&quot;)" fullname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.PurchaseOrderDefaultingTests.StockItem_IsNotDefaultedAndEmpty(&quot;DRITTLAND&quot;)" methodname="StockItem_IsNotDefaultedAndEmpty" classname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.PurchaseOrderDefaultingTests" runstate="Runnable" seed="459037578" result="Passed" start-time="2018-01-05 10:25:22Z" end-time="2018-01-05 10:25:24Z" duration="2.578197" asserts="3">
+                        <output><![CDATA[Purchase Order : BE00000042
+]]></output>
+                      </test-case>
+                    </test-suite>
+                  </test-suite>
+                  <test-suite type="TestFixture" id="1-1025" name="PurchaseReceiptDefaultingTests" fullname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.PurchaseReceiptDefaultingTests" classname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.PurchaseReceiptDefaultingTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2018-01-05 10:25:24Z" end-time="2018-01-05 10:25:29Z" duration="5.035855" total="2" passed="2" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="2">
+                    <test-case id="1-1026" name="NonStockItem_WithInventoryItemSetting_IsDefaultedWithAccountSpecifiedInInventoryItem" fullname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.PurchaseReceiptDefaultingTests.NonStockItem_WithInventoryItemSetting_IsDefaultedWithAccountSpecifiedInInventoryItem" methodname="NonStockItem_WithInventoryItemSetting_IsDefaultedWithAccountSpecifiedInInventoryItem" classname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.PurchaseReceiptDefaultingTests" runstate="Runnable" seed="1048267171" result="Passed" start-time="2018-01-05 10:25:24Z" end-time="2018-01-05 10:25:27Z" duration="2.498409" asserts="1">
+                      <properties>
+                        <property name="Category" value="Level1" />
+                        <property name="Description" value="Non-Stock item selected in Purchase Receipt having Inventory item class as a posting class specified in settings, is defaulted with an Account specified in the inventory item -&gt; GL Accounts -&gt; Expense Account" />
+                      </properties>
+                      <output><![CDATA[Purchase Receipt : EL00000020
+]]></output>
+                    </test-case>
+                    <test-case id="1-1027" name="NonStockItem_WithPamPostingClassSetting_IsDefaultedWithAccountSpecifiedInPam" fullname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.PurchaseReceiptDefaultingTests.NonStockItem_WithPamPostingClassSetting_IsDefaultedWithAccountSpecifiedInPam" methodname="NonStockItem_WithPamPostingClassSetting_IsDefaultedWithAccountSpecifiedInPam" classname="Haufe.PT.Api.SystemTests.AP.Tests.NonStockItemsTests.PurchaseReceiptDefaultingTests" runstate="Runnable" seed="1690743406" result="Passed" start-time="2018-01-05 10:25:27Z" end-time="2018-01-05 10:25:29Z" duration="2.537030" asserts="1">
+                      <properties>
+                        <property name="Category" value="Level1" />
+                        <property name="Description" value="Non-stock item selected in Purchase Receipt having PAM table as posting class spcified in settings, is defaulted with an account specified in posting account mappings table" />
+                      </properties>
+                      <output><![CDATA[Purchase Receipt : EL00000021
+]]></output>
+                    </test-case>
+                  </test-suite>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+  <test-suite type="Assembly" id="2-1003" name="AR.Tests.dll" fullname="\go\pipelines\TOP-4230-pt_systemtests_dev\Tests\TestDlls\AR.Tests.dll" runstate="Runnable" testcasecount="1" result="Skipped" label="Ignored" start-time="2018-01-05 10:25:30Z" end-time="2018-01-05 10:25:37Z" duration="7.105866" total="1" passed="0" failed="0" warnings="0" inconclusive="0" skipped="1" asserts="0">
+    <environment framework-version="3.9.0.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 10.0.14393.0" platform="Win32NT" cwd="\go\pipelines\TOP-4230-pt_systemtests_dev\Tests\TestDlls" machine-name="ACME" user="donald" user-domain="topsecret" culture="en-US" uiculture="en-US" os-architecture="x64" />
+    <settings>
+      <setting name="ProcessModel" value="InProcess" />
+      <setting name="DisposeRunners" value="True" />
+      <setting name="WorkDirectory" value="TestResult" />
+      <setting name="NumberOfTestWorkers" value="1" />
+      <setting name="ImageRuntimeVersion" value="4.0.30319" />
+      <setting name="ImageTargetFrameworkName" value=".NETFramework,Version=v4.7" />
+      <setting name="ImageRequiresX86" value="False" />
+      <setting name="ImageRequiresDefaultAppDomainAssemblyResolver" value="False" />
+    </settings>
+    <properties>
+      <property name="_PID" value="4740" />
+      <property name="_APPDOMAIN" value="domain-5e6112f0-AR.Tests.dll" />
+    </properties>
+    <reason>
+      <message><![CDATA[One or more child tests were ignored]]></message>
+    </reason>
+    <test-suite type="TestSuite" id="2-1004" name="Haufe" fullname="Haufe" runstate="Runnable" testcasecount="1" result="Skipped" label="Ignored" start-time="2018-01-05 10:25:30Z" end-time="2018-01-05 10:25:37Z" duration="7.079590" total="1" passed="0" failed="0" warnings="0" inconclusive="0" skipped="1" asserts="0">
+      <reason>
+        <message><![CDATA[One or more child tests were ignored]]></message>
+      </reason>
+      <test-suite type="TestSuite" id="2-1005" name="PT" fullname="Haufe.PT" runstate="Runnable" testcasecount="1" result="Skipped" label="Ignored" start-time="2018-01-05 10:25:30Z" end-time="2018-01-05 10:25:37Z" duration="7.078488" total="1" passed="0" failed="0" warnings="0" inconclusive="0" skipped="1" asserts="0">
+        <reason>
+          <message><![CDATA[One or more child tests were ignored]]></message>
+        </reason>
+        <test-suite type="TestSuite" id="2-1006" name="Api" fullname="Haufe.PT.Api" runstate="Runnable" testcasecount="1" result="Skipped" label="Ignored" start-time="2018-01-05 10:25:30Z" end-time="2018-01-05 10:25:37Z" duration="7.078465" total="1" passed="0" failed="0" warnings="0" inconclusive="0" skipped="1" asserts="0">
+          <reason>
+            <message><![CDATA[One or more child tests were ignored]]></message>
+          </reason>
+          <test-suite type="TestSuite" id="2-1007" name="SystemTests" fullname="Haufe.PT.Api.SystemTests" runstate="Runnable" testcasecount="1" result="Skipped" label="Ignored" start-time="2018-01-05 10:25:30Z" end-time="2018-01-05 10:25:37Z" duration="7.078448" total="1" passed="0" failed="0" warnings="0" inconclusive="0" skipped="1" asserts="0">
+            <reason>
+              <message><![CDATA[One or more child tests were ignored]]></message>
+            </reason>
+            <test-suite type="TestSuite" id="2-1008" name="AR" fullname="Haufe.PT.Api.SystemTests.AR" runstate="Runnable" testcasecount="1" result="Skipped" label="Ignored" start-time="2018-01-05 10:25:30Z" end-time="2018-01-05 10:25:37Z" duration="7.078412" total="1" passed="0" failed="0" warnings="0" inconclusive="0" skipped="1" asserts="0">
+              <reason>
+                <message><![CDATA[One or more child tests were ignored]]></message>
+              </reason>
+              <test-suite type="SetUpFixture" id="2-1000" name="Tests" fullname="Haufe.PT.Api.SystemTests.AR.Tests.Initialize" classname="Haufe.PT.Api.SystemTests.AR.Tests.Initialize" runstate="Runnable" testcasecount="1" result="Skipped" label="Ignored" start-time="2018-01-05 10:25:30Z" end-time="2018-01-05 10:25:37Z" duration="7.074387" total="1" passed="0" failed="0" warnings="0" inconclusive="0" skipped="1" asserts="0">
+                <reason>
+                  <message><![CDATA[One or more child tests were ignored]]></message>
+                </reason>
+                <output><![CDATA[Starting Builder for [FinancialPeriodsTestDataBuilder]
+Starting Builder for [PostingClassDataBuilder]
+Starting Builder for [PostingAccountsMappingBuilder]
+Starting Builder for [StockItemDataBuilder]
+Starting Builder for [NonStockItemDataBuilder]
+Starting Builder for [VendorDataBuilder]
+Starting Builder for [TaxesTestDataBuilder]
+Starting Builder for [PreferenceTestDataBuilder]
+Starting Builder for [VendorTradeDiscountTestDataBuiler]
+Starting Builder for [CustomerTestDataBuilder]
+Data builder finished !!
+]]></output>
+                <test-suite type="TestFixture" id="2-1001" name="JournalTransactionTests" fullname="Haufe.PT.Api.SystemTests.AR.Tests.JournalTransactionTests" classname="Haufe.PT.Api.SystemTests.AR.Tests.JournalTransactionTests" runstate="Runnable" testcasecount="1" result="Skipped" label="Ignored" start-time="2018-01-05 10:25:37Z" end-time="2018-01-05 10:25:37Z" duration="0.015394" total="1" passed="0" failed="0" warnings="0" inconclusive="0" skipped="1" asserts="0">
+                  <reason>
+                    <message><![CDATA[One or more child tests were ignored]]></message>
+                  </reason>
+                  <test-case id="2-1002" name="GlEntries_WithSalesOrderHavingStockAndNonStockItemsAndDocumentDiscount_PostsCorrectAccountsToGl" fullname="Haufe.PT.Api.SystemTests.AR.Tests.JournalTransactionTests.GlEntries_WithSalesOrderHavingStockAndNonStockItemsAndDocumentDiscount_PostsCorrectAccountsToGl" methodname="GlEntries_WithSalesOrderHavingStockAndNonStockItemsAndDocumentDiscount_PostsCorrectAccountsToGl" classname="Haufe.PT.Api.SystemTests.AR.Tests.JournalTransactionTests" runstate="Ignored" seed="2003727559" result="Skipped" label="Ignored" start-time="2018-01-05 10:25:37Z" end-time="2018-01-05 10:25:37Z" duration="0.007826" asserts="0">
+                    <properties>
+                      <property name="_SKIPREASON" value="work in progress !!" />
+                    </properties>
+                    <reason>
+                      <message><![CDATA[work in progress !!]]></message>
+                    </reason>
+                  </test-case>
+                </test-suite>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+  <test-suite type="Assembly" id="3-1005" name="TestDatBuilder.Tests.dll" fullname="\go\pipelines\TOP-4230-pt_systemtests_dev\Tests\TestDlls\TestDatBuilder.Tests.dll" runstate="Runnable" testcasecount="3" result="Skipped" label="Ignored" start-time="2018-01-05 10:25:37Z" end-time="2018-01-05 10:25:40Z" duration="3.089856" total="3" passed="2" failed="0" warnings="0" inconclusive="0" skipped="1" asserts="2">
+    <environment framework-version="3.9.0.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 10.0.14393.0" platform="Win32NT" cwd="\go\pipelines\TOP-4230-pt_systemtests_dev\Tests\TestDlls" machine-name="ACME" user="donald" user-domain="topsecret" culture="en-US" uiculture="en-US" os-architecture="x64" />
+    <settings>
+      <setting name="ProcessModel" value="InProcess" />
+      <setting name="DisposeRunners" value="True" />
+      <setting name="WorkDirectory" value="TestResult" />
+      <setting name="NumberOfTestWorkers" value="1" />
+      <setting name="ImageRuntimeVersion" value="4.0.30319" />
+      <setting name="ImageTargetFrameworkName" value=".NETFramework,Version=v4.7" />
+      <setting name="ImageRequiresX86" value="False" />
+      <setting name="ImageRequiresDefaultAppDomainAssemblyResolver" value="False" />
+    </settings>
+    <properties>
+      <property name="_PID" value="4740" />
+      <property name="_APPDOMAIN" value="domain-77603397-TestDatBuilder.Tests.dll" />
+    </properties>
+    <reason>
+      <message><![CDATA[One or more child tests were ignored]]></message>
+    </reason>
+    <test-suite type="TestSuite" id="3-1006" name="TestDatBuilder" fullname="TestDatBuilder" runstate="Runnable" testcasecount="3" result="Skipped" label="Ignored" start-time="2018-01-05 10:25:37Z" end-time="2018-01-05 10:25:40Z" duration="3.056848" total="3" passed="2" failed="0" warnings="0" inconclusive="0" skipped="1" asserts="2">
+      <reason>
+        <message><![CDATA[One or more child tests were ignored]]></message>
+      </reason>
+      <test-suite type="TestSuite" id="3-1007" name="Tests" fullname="TestDatBuilder.Tests" runstate="Runnable" testcasecount="3" result="Skipped" label="Ignored" start-time="2018-01-05 10:25:37Z" end-time="2018-01-05 10:25:40Z" duration="3.055754" total="3" passed="2" failed="0" warnings="0" inconclusive="0" skipped="1" asserts="2">
+        <reason>
+          <message><![CDATA[One or more child tests were ignored]]></message>
+        </reason>
+        <test-suite type="TestFixture" id="3-1000" name="DateProviderTests" fullname="TestDatBuilder.Tests.DateProviderTests" classname="TestDatBuilder.Tests.DateProviderTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2018-01-05 10:25:37Z" end-time="2018-01-05 10:25:40Z" duration="3.045041" total="2" passed="2" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="2">
+          <test-case id="3-1001" name="GetDateWithinFinancialPeriod_WithFinancialPeriodIntheSystem_ReturnsCorrectDate" fullname="TestDatBuilder.Tests.DateProviderTests.GetDateWithinFinancialPeriod_WithFinancialPeriodIntheSystem_ReturnsCorrectDate" methodname="GetDateWithinFinancialPeriod_WithFinancialPeriodIntheSystem_ReturnsCorrectDate" classname="TestDatBuilder.Tests.DateProviderTests" runstate="Runnable" seed="257776400" result="Passed" start-time="2018-01-05 10:25:37Z" end-time="2018-01-05 10:25:39Z" duration="2.017906" asserts="1">
+            <properties>
+              <property name="Category" value="Level1" />
+            </properties>
+          </test-case>
+          <test-case id="3-1002" name="GetDateWithinFinancialPeriod_WithFinancialPeriodsFetchedByBuilder_ReturnsCorrectDate" fullname="TestDatBuilder.Tests.DateProviderTests.GetDateWithinFinancialPeriod_WithFinancialPeriodsFetchedByBuilder_ReturnsCorrectDate" methodname="GetDateWithinFinancialPeriod_WithFinancialPeriodsFetchedByBuilder_ReturnsCorrectDate" classname="TestDatBuilder.Tests.DateProviderTests" runstate="Runnable" seed="1403036585" result="Passed" start-time="2018-01-05 10:25:39Z" end-time="2018-01-05 10:25:40Z" duration="1.009810" asserts="1">
+            <properties>
+              <property name="Category" value="Level1" />
+            </properties>
+          </test-case>
+        </test-suite>
+        <test-suite type="TestFixture" id="3-1003" name="VendorTestDataBuilderTests" fullname="TestDatBuilder.Tests.VendorTestDataBuilderTests" classname="TestDatBuilder.Tests.VendorTestDataBuilderTests" runstate="Runnable" testcasecount="1" result="Skipped" label="Ignored" start-time="2018-01-05 10:25:40Z" end-time="2018-01-05 10:25:40Z" duration="0.001534" total="1" passed="0" failed="0" warnings="0" inconclusive="0" skipped="1" asserts="0">
+          <reason>
+            <message><![CDATA[One or more child tests were ignored]]></message>
+          </reason>
+          <test-case id="3-1004" name="Build_WithTestDataAndVendors_ConfiguresDocumentDiscountForAllZones" fullname="TestDatBuilder.Tests.VendorTestDataBuilderTests.Build_WithTestDataAndVendors_ConfiguresDocumentDiscountForAllZones" methodname="Build_WithTestDataAndVendors_ConfiguresDocumentDiscountForAllZones" classname="TestDatBuilder.Tests.VendorTestDataBuilderTests" runstate="Ignored" seed="832067438" result="Skipped" label="Ignored" start-time="2018-01-05 10:25:40Z" end-time="2018-01-05 10:25:40Z" duration="0.001112" asserts="0">
+            <properties>
+              <property name="_SKIPREASON" value="We need minor change on Acumatica side to enable this test" />
+              <property name="Category" value="Level1" />
+              <property name="Category" value="DataBuilderTests" />
+            </properties>
+            <reason>
+              <message><![CDATA[We need minor change on Acumatica side to enable this test]]></message>
+            </reason>
+          </test-case>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

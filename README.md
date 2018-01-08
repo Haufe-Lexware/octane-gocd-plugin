@@ -46,6 +46,7 @@ JUnit or NUnit. If successful the contained test results are transmitted to Octa
 Supported test result formats are:
  * JUnit
  * NUnit 2.5
+ * NUnit 3.0
 
 ### Triggering a pipeline to run
 In Octane the feature *Run Pipeline* might be deactivated. The reason is that ALM Octane only activates it for *known*
