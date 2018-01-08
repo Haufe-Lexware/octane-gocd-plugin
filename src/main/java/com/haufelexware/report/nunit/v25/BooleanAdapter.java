@@ -1,4 +1,4 @@
-package com.haufelexware.report.nunit;
+package com.haufelexware.report.nunit.v25;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 

@@ -1,6 +1,6 @@
-package com.haufelexware.report.nunit;
+package com.haufelexware.report.nunit.v25;
 
-import com.haufelexware.report.nunit.dom.NUnitTestResults;
+import com.haufelexware.report.nunit.v25.dom.NUnitTestResults;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -10,11 +10,11 @@ import java.io.InputStream;
 /**
  * This parser will parse a given stream into a NUnit-DOM.
  */
-public class NUnitReportParser {
+public class NUnit25ReportParser {
 
 	private final Unmarshaller unmarshaller;
 
-	public NUnitReportParser() {
+	public NUnit25ReportParser() {
 		try {
 			unmarshaller = JAXBContext.newInstance(NUnitTestResults.class).createUnmarshaller();
 		} catch (JAXBException e) {

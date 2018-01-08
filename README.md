@@ -39,9 +39,13 @@ This GoCD plugin exposes pipelines towards Octane.
 ### Test results
 In order to see test results of your pipelines in Octane. The plugin has to translate the test reports into Octane's
 data model. Therefor *xml-report-parsers* for *JUnit* and *NUnit* are integrated into this plugin. To allow the
-plugin to parse your xml-report-files, you have to declare them as artifacts of build. Whenever a pipeline finishes the
-plugin will search all artifacts, and it will try to parse all xml files assuming they are the result-file of
+plugin to parse your xml-report-files, you have to declare them as artifacts of your build. Whenever a pipeline finishes
+the plugin will search all artifacts, and it will try to parse all xml files assuming they are the result-file of
 JUnit or NUnit. If successful the contained test results are transmitted to Octane.
+
+Supported test result formats are:
+ * JUnit
+ * NUnit 2.5
 
 ### Triggering a pipeline to run
 In Octane the feature *Run Pipeline* might be deactivated. The reason is that ALM Octane only activates it for *known*

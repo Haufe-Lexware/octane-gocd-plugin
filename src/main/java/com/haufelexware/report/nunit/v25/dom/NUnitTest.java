@@ -1,6 +1,6 @@
-package com.haufelexware.report.nunit.dom;
+package com.haufelexware.report.nunit.v25.dom;
 
-import com.haufelexware.report.nunit.BooleanAdapter;
+import com.haufelexware.report.nunit.v25.BooleanAdapter;
 
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;

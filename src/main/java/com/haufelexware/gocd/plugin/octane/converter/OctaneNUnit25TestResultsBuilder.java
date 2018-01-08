@@ -2,10 +2,10 @@ package com.haufelexware.gocd.plugin.octane.converter;
 
 import com.haufelexware.gocd.service.GoApiClient;
 import com.haufelexware.gocd.service.GoGetArtifact;
-import com.haufelexware.report.nunit.NUnitReportParser;
-import com.haufelexware.report.nunit.dom.NUnitFailure;
-import com.haufelexware.report.nunit.dom.NUnitTestCase;
-import com.haufelexware.report.nunit.dom.NUnitTestResults;
+import com.haufelexware.report.nunit.v25.NUnit25ReportParser;
+import com.haufelexware.report.nunit.v25.dom.NUnitFailure;
+import com.haufelexware.report.nunit.v25.dom.NUnitTestCase;
+import com.haufelexware.report.nunit.v25.dom.NUnitTestResults;
 import com.hp.octane.integrations.dto.DTOFactory;
 import com.hp.octane.integrations.dto.tests.TestRun;
 import com.hp.octane.integrations.dto.tests.TestRunError;
@@ -25,13 +25,13 @@ import java.util.List;
 /**
  * This builder helps converting nUnit test reports into Octane {@link TestsResult}.
  */
-public class OctaneNUnitTestResultsBuilder {
+public class OctaneNUnit25TestResultsBuilder {
 
-	protected static final Logger Log = Logger.getLoggerFor(OctaneNUnitTestResultsBuilder.class);
+	protected static final Logger Log = Logger.getLoggerFor(OctaneNUnit25TestResultsBuilder.class);
 
 	private final GoApiClient goApiClient;
 
-	public OctaneNUnitTestResultsBuilder(GoApiClient goApiClient) {
+	public OctaneNUnit25TestResultsBuilder(GoApiClient goApiClient) {
 		this.goApiClient = goApiClient;
 	}
 
@@ -49,7 +49,7 @@ public class OctaneNUnitTestResultsBuilder {
 
 	public static List<TestRun> convert(InputStream artifactStream) throws JAXBException {
 		final List<TestRun> testRuns = new ArrayList<>();
-		NUnitTestResults testResults = new NUnitReportParser().parseFrom(artifactStream);
+		NUnitTestResults testResults = new NUnit25ReportParser().parseFrom(artifactStream);
 		if (testResults != null && testResults.getTestSuite() != null) {
 			List<NUnitTestCase> testCases = testResults.getTestSuite().getAllTestCases();
 			long startTime;

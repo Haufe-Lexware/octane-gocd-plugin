@@ -1,9 +1,10 @@
 package com.haufelexware.report.nunit;
 
-import com.haufelexware.report.nunit.dom.NUnitFailure;
-import com.haufelexware.report.nunit.dom.NUnitTestCase;
-import com.haufelexware.report.nunit.dom.NUnitTestResults;
-import com.haufelexware.report.nunit.dom.NUnitTestSuite;
+import com.haufelexware.report.nunit.v25.NUnit25ReportParser;
+import com.haufelexware.report.nunit.v25.dom.NUnitFailure;
+import com.haufelexware.report.nunit.v25.dom.NUnitTestCase;
+import com.haufelexware.report.nunit.v25.dom.NUnitTestResults;
+import com.haufelexware.report.nunit.v25.dom.NUnitTestSuite;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,13 +12,33 @@ import javax.xml.bind.JAXBException;
 import java.util.List;
 
 /**
- * Ensure that {@link NUnitReportParser} is working correctly.
+ * Ensure that {@link NUnit25ReportParser} is working correctly.
  */
-public class NUnitReportParserTest {
+public class NUnit25ReportParserTest {
 
 	@Test
-	public void testParsingNUnit35Report() throws JAXBException {
-		NUnitTestResults results = new NUnitReportParser().parseFrom(getClass().getClassLoader().getResourceAsStream("nunit.testResults.xml"));
+	public void testParsingNUnit25Sample() throws JAXBException {
+		NUnitTestResults results = new NUnit25ReportParser().parseFrom(getClass().getClassLoader().getResourceAsStream("nunit25.sample.xml"));
+		Assert.assertNotNull("results should not be null", results);
+		Assert.assertEquals("run date", "2010-10-18", results.getDate());
+		Assert.assertEquals("run time", "13:23:35", results.getTime());
+		NUnitTestSuite testSuite = results.getTestSuite();
+		Assert.assertNotNull("test-suite should not be null", testSuite);
+		Assert.assertEquals("test-suite type", "Assembly", testSuite.getType());
+		Assert.assertEquals("test-suite name", "/home/charlie/Dev/NUnit/nunit-2.5/work/src/bin/Debug/tests/mock-assembly.dll", testSuite.getName());
+		Assert.assertEquals("test-suite executed", Boolean.TRUE, testSuite.wasExecuted());
+		Assert.assertEquals("test-suite result", "Failure", testSuite.getResult());
+		Assert.assertEquals("test-suite success", Boolean.FALSE, testSuite.wasSuccess());
+		Assert.assertTrue("test-suite time is greater zero", 0 < testSuite.getTime());
+		Assert.assertEquals("test-suite number of asserts", 0, testSuite.getAsserts());
+		List<NUnitTestCase> testCases = testSuite.getAllTestCases();
+		Assert.assertNotNull("testCases should not be null", testCases);
+		Assert.assertEquals("number of test cases", 28, testCases.size());
+	}
+
+	@Test
+	public void testParsingNUnit25Report() throws JAXBException {
+		NUnitTestResults results = new NUnit25ReportParser().parseFrom(getClass().getClassLoader().getResourceAsStream("nunit25.testResults.xml"));
 		Assert.assertNotNull("results should not be null", results);
 		Assert.assertEquals("run date", "2017-11-02", results.getDate());
 		Assert.assertEquals("run time", "09:34:09", results.getTime());
@@ -36,8 +57,8 @@ public class NUnitReportParserTest {
 	}
 
 	@Test
-	public void testParsingFailedNUnit35Report() throws JAXBException {
-		NUnitTestResults results = new NUnitReportParser().parseFrom(getClass().getClassLoader().getResourceAsStream("nunit.failed.testResults.xml"));
+	public void testParsingFailedNUnit25Report() throws JAXBException {
+		NUnitTestResults results = new NUnit25ReportParser().parseFrom(getClass().getClassLoader().getResourceAsStream("nunit25.failed.testResults.xml"));
 		Assert.assertNotNull("results should not be null", results);
 		Assert.assertEquals("run date", "2017-11-07", results.getDate());
 		Assert.assertEquals("run time", "14:57:13", results.getTime());

@@ -8,13 +8,13 @@ import javax.xml.bind.JAXBException;
 import java.util.List;
 
 /**
- * This class ensures that {@link OctaneNUnitTestResultsBuilder} is working correctly.
+ * This class ensures that {@link OctaneNUnit25TestResultsBuilder} is working correctly.
  */
-public class OctaneNUnitTestResultsBuilderTest {
+public class OctaneNUnitTestResultsBuilder25Test {
 
 	@Test
 	public void testConversionFromNUnitXMLIntoOctaneModel() throws JAXBException {
-		final List<TestRun> tests = OctaneNUnitTestResultsBuilder.convert(getClass().getClassLoader().getResourceAsStream("nunit.testResults.xml"));
+		final List<TestRun> tests = OctaneNUnit25TestResultsBuilder.convert(getClass().getClassLoader().getResourceAsStream("nunit25.testResults.xml"));
 		Assert.assertNotNull("tests should not be null", tests);
 		Assert.assertEquals("number of tests", 6, tests.size());
 		TestRun testRun = tests.get(0);
