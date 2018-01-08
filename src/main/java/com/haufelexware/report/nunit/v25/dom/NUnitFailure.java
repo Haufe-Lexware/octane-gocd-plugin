@@ -12,7 +12,7 @@ public class NUnitFailure {
 
 	@XmlElement
 	private String message;
-	@XmlElement
+	@XmlElement(name = "stack-trace")
 	private String stacktrace;
 
 	public String getMessage() {

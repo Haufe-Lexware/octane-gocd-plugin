@@ -80,6 +80,6 @@ public class NUnit25ReportParserTest {
 		NUnitFailure failure = testCase.getFailure();
 		Assert.assertNotNull("test should have a failure", failure);
 		Assert.assertEquals("test failure message should be", "Test exceeded Timeout value of 1800000ms", failure.getMessage());
-		Assert.assertNull("test failure stacktrace should be null", failure.getStacktrace());
+		Assert.assertEquals("test failure stacktrace should be", "", failure.getStacktrace());
 	}
 }
