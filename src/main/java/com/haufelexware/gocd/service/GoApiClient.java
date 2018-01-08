@@ -16,7 +16,7 @@ import java.net.URL;
  *
  * This client is stateful: If a HTTP-200 response has the "Set-Cookie" header set,
  * then this client will reuse this cookie for all subsequent requests. This cookie
- * handling is necessary for request, which are not considered API requests like
+ * handling is necessary for requests, which are not considered API requests like
  * <a href="https://api.gocd.org/current/#get-all-artifacts">Get All Artifacts</a>
  * (notice that GetAllArtifacts starts with "/go/files/" instead of "/go/api/")
  *

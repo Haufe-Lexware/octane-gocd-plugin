@@ -15,7 +15,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * This class encapsulate the request to get all artifacts of a job from Go.
+ * This class encapsulates the request to get all artifacts of a job from Go.
  * This API service is available since Go Version 14.3.0
  * @see <a href="https://api.gocd.org/current/#get-all-artifacts">Get All Artifacts</a>
  *

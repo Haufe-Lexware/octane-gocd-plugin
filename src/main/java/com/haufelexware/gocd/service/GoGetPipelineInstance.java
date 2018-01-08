@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.net.URLEncoder;
 
 /**
- * This class encapsulate the API call to get a specific pipeline instance of a Go pipeline.
+ * This class encapsulates the API call to get a specific pipeline instance of a Go pipeline.
  * This API service is available since Go Version 15.1.0
  * @see <a href="https://api.gocd.org/current/#get-pipeline-instance">Get Pipeline Instance</a>
  */

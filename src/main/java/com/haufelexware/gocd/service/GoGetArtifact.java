@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.net.URL;
 
 /**
- * This class encapsulate the API call to get a single artifact of a job from Go.
+ * This class encapsulates the API call to get a single artifact of a job from Go.
  * This API service is available since Go Version 14.3.0
  * @see <a href="https://api.gocd.org/current/#get-artifact-file">Get Artifact</a>
  */

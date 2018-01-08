@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * This class encapsulate the API call to get all configured pipeline groups from Go.
+ * This class encapsulates the API call to get all configured pipeline groups from Go.
  * This API service is available since Go Version 14.3.0
  * @see <a href="https://api.gocd.org/17.9.0/#config-listing">Config listing</a>
  */

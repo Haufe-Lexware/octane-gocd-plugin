@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.net.URLEncoder;
 
 /**
- * This class encapsulate the API call to get a specific stage instance.
+ * This class encapsulates the API call to get a specific stage instance.
  * This API service is available since Go Version 15.1.0
  * @see <a href="https://api.gocd.org/current/#get-stage-instance">Get Stage Instance</a>
  */

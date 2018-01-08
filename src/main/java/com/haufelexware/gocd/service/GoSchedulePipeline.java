@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.net.URLEncoder;
 
 /**
- * This class encapsulate the API call to trigger a specific pipeline to be build in Go.
+ * This class encapsulates the API call to trigger a specific pipeline to be build in Go.
  * This API service is available since Go Version 14.3.0
  * @see <a href="https://api.gocd.org/current/#scheduling-pipelines">Scheduling Pipelines</a>
  */

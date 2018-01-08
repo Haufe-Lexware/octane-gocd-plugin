@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.net.URLEncoder;
 
 /**
- * This class encapsulate the API call to get an complete pipeline configuration from Go.
+ * This class encapsulates the API call to get an complete pipeline configuration from Go.
  * This API service is available since Go Version 15.3.0
  * @see <a href="https://api.gocd.org/current/#get-pipeline-config">Get Pipeline Config</a>
  */

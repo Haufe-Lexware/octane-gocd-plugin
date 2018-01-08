@@ -15,7 +15,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * This class encapsulate the API call to get all pipeline instances of a Go pipeline.
+ * This class encapsulates the API call to get all pipeline instances of a Go pipeline.
  * This API service is available since Go Version 14.3.0
  * @see <a href="https://api.gocd.org/current/#get-pipeline-history">Get Pipeline History</a>
  */
