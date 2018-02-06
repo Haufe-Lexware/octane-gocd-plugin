@@ -40,7 +40,7 @@ public class OctaneJUnitTestResultsBuilder {
 		try (InputStream report = new GoGetArtifact(goApiClient).get(artifactUrl)) { // try to parse the given artifact as JUnit report file.
 			return convert(report);
 		} catch (JAXBException e) {
-			Log.info("parsing artifact '" + artifactUrl + "' as JUnit report failed");
+			Log.debug("parsing artifact '" + artifactUrl + "' as JUnit report failed");
 		} catch (IOException e) {
 			Log.error("could not read artifact '" + artifactUrl + "' from server", e);
 		}

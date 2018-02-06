@@ -46,6 +46,12 @@ public class OctaneTestResultsBuilder {
 		testResults.addAll(new OctaneJUnitTestResultsBuilder(goApiClient).convert(artifact.getUrl()));
 		testResults.addAll(new OctaneNUnit25TestResultsBuilder(goApiClient).convert(artifact.getUrl()));
 		testResults.addAll(new OctaneNUnit30TestResultsBuilder(goApiClient).convert(artifact.getUrl()));
+		// create some logfile output.
+		if (!testResults.isEmpty()) {
+			Log.info("artifact '" + artifact.getUrl() + "' could be parsed as test-result-file. Found " + testResults.size() + " tests.");
+		} else {
+			Log.debug("artifact '" + artifact.getUrl() + "' could not be parsed as test-result-file");
+		}
 		return testResults;
 	}
 }
