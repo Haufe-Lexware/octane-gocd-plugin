@@ -86,7 +86,7 @@ public class OctaneGoCDPlugin implements GoPlugin {
 				Log.info("Go Server ID: " + goPluginServices.getGoServerID());
 			}
 		}
-		OctaneSDK.init(goPluginServices, true);
+		OctaneSDK.init(goPluginServices);
 		Log.info("HPE ALM Octane initialized with '" + goPluginServices.getSettings().getServerURL() + "'");
 	}
 
