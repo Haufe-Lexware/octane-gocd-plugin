@@ -54,8 +54,9 @@ public class OctaneCIEventBuilder {
 		}
 
 		final String pipelineName = String.valueOf(statusInfo.getValue("pipeline", "name"));
-		final GoPipelineConfig pipelineConfig = new GoGetPipelineConfig(goApiClient).get(pipelineName);
-		final List<GoStageConfig> stages = pipelineConfig.getStages();
+		final Integer pipelineCounter = Integer.valueOf(String.valueOf(statusInfo.getValue("pipeline", "counter")));
+		final GoPipelineInstance pipelineInstance = new GoGetPipelineInstance(goApiClient).get(pipelineName, pipelineCounter);
+		final List<GoStageInstance> stages = pipelineInstance.getStages();
 
 		if (PipelineStageState.Building.name().equals(statusInfo.getValue("pipeline", "stage", "state"))) {
 			// only generate a start-event if the current stage is the very first one in the pipeline.
