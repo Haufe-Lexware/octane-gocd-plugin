@@ -1,3 +1,6 @@
+MicroFocus (the creators of Octane) used this plugin to derive the official version from it.
+The official repository is: https://github.com/MicroFocus/octane-gocd-plugin
+
 # HPE ALM Octane GoCD plugin ![Build State on Travis-CI](https://travis-ci.org/Haufe-Lexware/octane-gocd-plugin.svg?branch=master)
 This plugin integrates GoCD with HPE ALM Octane. Making GoCD pipelines accessible in HPE ALM Octane and allowing to
 analyze build quality and test results.
